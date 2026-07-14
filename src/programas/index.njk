@@ -1,0 +1,51 @@
+---
+layout: layouts/base.njk
+title: Programas
+description: Programas de la SEVIAH — Bono de Vivienda de Interés Social (BVIS), Mejoramiento de Vivienda, Asentamientos Humanos y atención a emergencias.
+---
+{% from "en-construccion.njk" import en_construccion %}
+<section class="section section--suave">
+  <div class="container">
+    <p class="eyebrow">Al servicio de las familias</p>
+    <h1 class="section-title">Programas</h1>
+    <p class="section-lead">Instrumentos de la política pública de vivienda y asentamientos humanos, conforme a la Ley Marco del Sector.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      {% for prog in contenido.programas %}
+        <div class="col-lg-6">
+          <div class="ficha h-100">
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <div class="pilar__icon"><i class="{{ prog.icono }}" aria-hidden="true"></i></div>
+              <h2 class="ficha__title mb-0">{{ prog.titulo }}</h2>
+            </div>
+            <p class="ficha__body">{{ prog.cuerpo }}</p>
+            {% if prog.en_construccion %}
+              {{ en_construccion("Contenido detallado en construcción", "Estamos preparando la información completa de este programa para usted.") }}
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--crema">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Contexto del sector</p>
+      <h2 class="section-title">Metas y declaraciones</h2>
+    </div>
+    <div class="ficha">
+      <ul class="ficha__body mb-0">
+        {% for d in contenido.programas_contexto %}
+          <li class="mb-2">{{ d }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <p class="section-lead mt-3"><small>Las cifras se presentan como metas y declaraciones institucionales, no como resultados.</small></p>
+  </div>
+</section>

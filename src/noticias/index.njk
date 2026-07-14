@@ -1,0 +1,50 @@
+---
+layout: layouts/base.njk
+title: Noticias
+description: Noticias institucionales de la Secretaría de Vivienda y Asentamientos Humanos (SEVIAH).
+---
+{% from "card-noticia.njk" import card_noticia %}
+{% from "video-embed.njk" import video_embed %}
+<section class="section section--suave">
+  <div class="container">
+    <p class="eyebrow">Sala de prensa</p>
+    <h1 class="section-title">Noticias</h1>
+    <p class="section-lead">Actualidad institucional de la Secretaría de Vivienda y Asentamientos Humanos.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      {% for n in noticias %}
+        <div class="col-md-6 col-lg-4">{{ card_noticia(n) }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--crema">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Notas completas</p>
+      <h2 class="section-title">Boletines</h2>
+    </div>
+    {% for n in noticias %}
+      {% set vid = videos | buscarPorSlug(n.video_slug) %}
+      <article class="ficha mb-4" id="{{ n.slug }}">
+        <p class="card-noticia__date">{{ n.fecha }}</p>
+        <h3 class="ficha__title">{{ n.titulo }}</h3>
+        <div class="ficha__body">
+          {% for parrafo in n.cuerpo %}
+            <p>{{ parrafo }}</p>
+          {% endfor %}
+        </div>
+        {% if vid %}
+          <div class="row mt-3">
+            <div class="col-md-8 col-lg-6">{{ video_embed(vid) }}</div>
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>

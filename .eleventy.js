@@ -5,6 +5,10 @@ module.exports = function (eleventyConfig) {
   // Filtro utilitario para año/fecha de "última actualización" del footer (docs/02 §9)
   eleventyConfig.addFilter("anio", (value) => String(value).slice(0, 4));
 
+  // Busca un objeto por slug dentro de una lista (p. ej. el video de una noticia)
+  eleventyConfig.addFilter("buscarPorSlug", (lista, slug) =>
+    (lista || []).find((x) => x.slug === slug) || null);
+
   // Fecha de última actualización del footer (docs/02 §9), en español
   eleventyConfig.addGlobalData("actualizado", () => {
     const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio",

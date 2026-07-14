@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+title: Sistemas
+description: Sistemas de la SEVIAH — SIGEBO (Sistema Integrado de Gestión del Bono de Vivienda) y SIGEPO (Sistema Integrado de Gestión de Proyectos).
+---
+{% from "en-construccion.njk" import en_construccion %}
+<section class="section section--suave">
+  <div class="container">
+    <p class="eyebrow">Plataformas institucionales</p>
+    <h1 class="section-title">Sistemas</h1>
+    <p class="section-lead">Sistemas de gestión de la SEVIAH. SIGEBO y SIGEPO son dos plataformas distintas con propósitos diferentes.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      {% for s in contenido.sistemas %}
+        <div class="col-lg-6">
+          <div class="ficha h-100">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h2 class="ficha__title mb-0">{{ s.sigla }}</h2>
+              <span class="badge-estado">{{ s.estado }}</span>
+            </div>
+            <p class="eyebrow ficha__eyebrow">{{ s.nombre }}</p>
+            <p class="ficha__body">{{ s.cuerpo }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--crema">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Acceso ciudadano</p>
+      <h2 class="section-title">Portales ciudadanos</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        {{ en_construccion("Portales ciudadanos en construcción", "Los portales de acceso ciudadano a los sistemas estarán disponibles próximamente.") }}
+      </div>
+    </div>
+  </div>
+</section>
