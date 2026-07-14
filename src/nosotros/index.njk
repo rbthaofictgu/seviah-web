@@ -1,0 +1,73 @@
+---
+layout: layouts/base.njk
+title: Nosotros
+description: Quiénes somos — misión, visión, valores y base legal de la Secretaría de Vivienda y Asentamientos Humanos (SEVIAH).
+---
+<section class="section section--suave">
+  <div class="container">
+    <p class="eyebrow">Quiénes somos</p>
+    <h1 class="section-title">Nosotros</h1>
+    <p class="section-lead">La Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) es el ente rector de la política pública de vivienda y asentamientos humanos de Honduras.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="ficha h-100">
+          <p class="eyebrow ficha__eyebrow">Misión</p>
+          <h2 class="ficha__title">Nuestra misión</h2>
+          <p class="editorial">{{ contenido.mision }}</p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="ficha h-100">
+          <p class="eyebrow ficha__eyebrow">Visión</p>
+          <h2 class="ficha__title">Nuestra visión</h2>
+          <p class="editorial">{{ contenido.vision }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--crema">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Nuestros valores</p>
+      <h2 class="section-title">Pilares institucionales</h2>
+    </div>
+    <div class="row g-4">
+      {% for p in contenido.pilares %}
+        <div class="col-md-6 col-lg-4">
+          <div class="pilar">
+            <div class="pilar__icon"><i class="{{ p.icono }}" aria-hidden="true"></i></div>
+            <div>
+              <h3 class="pilar__title">{{ p.titulo }}</h3>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Marco normativo</p>
+      <h2 class="section-title">Base legal</h2>
+    </div>
+    <div class="row g-4">
+      {% for ley in contenido.base_legal %}
+        <div class="col-lg-4">
+          <div class="ficha h-100">
+            <h3 class="ficha__title">{{ ley.titulo }}</h3>
+            <p class="ficha__body">{{ ley.texto }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

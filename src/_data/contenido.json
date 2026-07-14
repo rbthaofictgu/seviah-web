@@ -1,0 +1,82 @@
+{
+  "lema": "Construyendo un mejor futuro para Honduras.",
+  "mision": "Rectorar, coordinar, ejecutar y evaluar la Política Pública de Vivienda y Asentamientos Humanos en Honduras, asegurando la aplicación del marco regulatorio y el fortalecimiento del Sistema Nacional de Vivienda, promoviendo el acceso de la población hondureña, especialmente a las familias de escasos recursos, a soluciones habitacionales dignas, seguras y sostenibles, así como el desarrollo ordenado de los asentamientos humanos en el país.",
+  "vision": "Consolidarse como el ente rector en la planificación y desarrollo del sector vivienda y asentamientos humanos, asegurando que Honduras cuente con un mercado habitacional inclusivo, eficiente y sostenible, que garantice el acceso a soluciones habitacionales dignas y el desarrollo ordenado y sostenible de los asentamientos humanos en el país.",
+  "pilares": [
+    { "icono": "fa-solid fa-house-chimney", "titulo": "Vivienda digna para todos" },
+    { "icono": "fa-solid fa-people-roof", "titulo": "Asentamientos humanos ordenados" },
+    { "icono": "fa-solid fa-handshake-angle", "titulo": "Atención cercana y responsable" },
+    { "icono": "fa-solid fa-leaf", "titulo": "Sostenibilidad y desarrollo ordenado" },
+    { "icono": "fa-solid fa-shield-heart", "titulo": "Comprometidos con Honduras" }
+  ],
+  "base_legal": [
+    {
+      "titulo": "Decreto Legislativo 173-2019 — Ley Marco del Sector Vivienda y Asentamientos Humanos",
+      "texto": "Publicado en el Diario Oficial La Gaceta No. 35,178 (18 de febrero de 2020). Crea la SEVIAH, el Fondo Nacional para la Vivienda (FONHVIVIENDA) y el Bono de Vivienda de Interés Social (BVIS)."
+    },
+    {
+      "titulo": "PCM-004-2026 — Incorporación operativa de SEVIAH",
+      "texto": "Publicado en La Gaceta No. 37,079. Dispone la absorción de CONVIVIENDA y el PVAH y la liquidación de FOSOVI, con el traslado de bienes a la SEVIAH. Constituye el anclaje operativo de la administración actual."
+    },
+    {
+      "titulo": "FONHVIVIENDA — Fondo Nacional para la Vivienda",
+      "texto": "Entidad desconcentrada creada por la Ley Marco (Arts. 6–8), con patrimonio propio y Junta Directiva, como parte del Sistema Nacional de Vivienda."
+    }
+  ],
+  "autoridades": [
+    {
+      "nombre": "Ing. Francis Yolanda Argeñal Echenique",
+      "cargo": "Secretaria de Estado en el Despacho de Vivienda y Asentamientos Humanos",
+      "bio": "Ingeniera civil (UJCV) con maestría en Proyectos (UNICAH). Ha sido consultora del BID, directora del FHIS, comisionada nacional de Vivienda y diputada (2022-2026). Primera ministra de Vivienda en la historia de Honduras. Asumió el cargo el 22 de febrero de 2026."
+    },
+    {
+      "nombre": "Sumay Josselyne Palacios",
+      "cargo": "Subsecretaria de Estado",
+      "bio": ""
+    }
+  ],
+  "programas": [
+    {
+      "titulo": "Bono de Vivienda de Interés Social (BVIS)",
+      "icono": "fa-solid fa-house-chimney",
+      "cuerpo": "Aporte estatal para familias con ingresos de 0 a 4 salarios mínimos, conforme a la Ley Marco. La Secretaria de Estado ha anunciado una modalidad de bono total (100%) para familias con ingresos de medio salario mínimo o menos que aporten el terreno (declaración de la Secretaria, El Heraldo, febrero de 2026)."
+    },
+    {
+      "titulo": "Mejoramiento de Vivienda",
+      "icono": "fa-solid fa-trowel-bricks",
+      "cuerpo": "Intervenciones de mejora en vivienda existente. Proyecto en ejecución y socialización: San Marcos de Colón, departamento de Choluteca."
+    },
+    {
+      "titulo": "Asentamientos Humanos",
+      "icono": "fa-solid fa-people-roof",
+      "cuerpo": "Desarrollo ordenado de los asentamientos humanos conforme a la Ley Marco.",
+      "en_construccion": true
+    },
+    {
+      "titulo": "Atención a emergencias",
+      "icono": "fa-solid fa-house-flood-water",
+      "cuerpo": "Donación y reposición de vivienda a familias afectadas por incendios y desastres, como parte de la atención del sector vivienda."
+    }
+  ],
+  "programas_contexto": [
+    "Meta gubernamental para 2026: superar las 20,000 soluciones habitacionales (declaración recogida por Proceso Digital, febrero de 2026).",
+    "Déficit habitacional estimado en alrededor de 1.6 millones de unidades, de las cuales cerca de 640 mil corresponden a déficit cuantitativo (declaraciones de la Secretaria; INE 2025, citado por La Prensa: 61.9% de los hogares con alguna carencia habitacional)."
+  ],
+  "sistemas": [
+    {
+      "sigla": "SIGEBO",
+      "nombre": "Sistema Integrado de Gestión del Bono de Vivienda de Interés Social",
+      "cuerpo": "Plataforma para la gestión del ciclo del Bono de Vivienda de Interés Social (BVIS): postulación, focalización, elegibilidad, asignación y transparencia.",
+      "estado": "En desarrollo"
+    },
+    {
+      "sigla": "SIGEPO",
+      "nombre": "Sistema Integrado de Gestión de Proyectos",
+      "cuerpo": "Plataforma para la gestión de proyectos de vivienda e infraestructura social de la SEVIAH.",
+      "estado": "En desarrollo"
+    }
+  ],
+  "contacto": {
+    "facebook": "https://www.facebook.com/seviah.hn"
+  }
+}

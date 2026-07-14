@@ -1,0 +1,51 @@
+---
+layout: layouts/base.njk
+title: Autoridades
+description: Autoridades de la Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — Gobierno de la República de Honduras.
+---
+{% from "en-construccion.njk" import en_construccion %}
+<section class="section section--suave">
+  <div class="container">
+    <p class="eyebrow">Conducción institucional</p>
+    <h1 class="section-title">Autoridades</h1>
+    <p class="section-lead">Autoridades de la Secretaría de Vivienda y Asentamientos Humanos (SEVIAH).</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      {% for a in contenido.autoridades %}
+        <div class="col-lg-6">
+          <div class="ficha h-100">
+            <div class="row g-3 align-items-start">
+              <div class="col-5 col-md-4">
+                <div class="retrato-silueta"><i class="fa-solid fa-user-tie" aria-hidden="true"></i></div>
+                <p class="video-embed__caption text-center mt-2 mb-0">Fotografía oficial en construcción</p>
+              </div>
+              <div class="col-7 col-md-8">
+                <h2 class="ficha__title">{{ a.nombre }}</h2>
+                <p class="eyebrow ficha__eyebrow">{{ a.cargo }}</p>
+                {% if a.bio %}<p class="ficha__body">{{ a.bio }}</p>{% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--crema">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Estructura</p>
+      <h2 class="section-title">Organigrama</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        {{ en_construccion("Organigrama en construcción", "Estamos preparando la estructura organizativa de la Secretaría para usted.") }}
+      </div>
+    </div>
+  </div>
+</section>
