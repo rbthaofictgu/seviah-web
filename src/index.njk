@@ -3,11 +3,71 @@ layout: layouts/base.njk
 title: Inicio
 description: Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — ente rector de la política pública de vivienda y asentamientos humanos de Honduras.
 ---
+{% from "hero.njk" import hero %}
+{% from "card-destacado.njk" import card_destacado %}
+{% from "card-noticia.njk" import card_noticia %}
+{% from "video-embed.njk" import video_embed %}
+
+{% set slides = [
+  { variante: "dorado", eyebrow: "Secretaría de Vivienda y Asentamientos Humanos", titulo: "Construyendo un mejor futuro para Honduras", texto: "Ente rector de la política pública de vivienda y asentamientos humanos de Honduras.", cta_url: "/nosotros/", cta_texto: "Conozca la SEVIAH" },
+  { variante: "navy", eyebrow: "Programas", titulo: "Vivienda digna, segura y sostenible", texto: "El Bono de Vivienda de Interés Social y el mejoramiento de vivienda, al servicio de las familias hondureñas.", cta_url: "/programas/", cta_texto: "Ver programas" },
+  { variante: "verde", eyebrow: "SEVIAH en acción", titulo: "Cerca de las familias hondureñas", texto: "Atención a emergencias y desarrollo ordenado de los asentamientos humanos.", cta_url: "/noticias/", cta_texto: "Ver noticias" }
+] %}
+
+{{ hero(slides, true) }}
+
+<section class="section section--suave">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Conozca la SEVIAH</p>
+      <h2 class="section-title">Destacados</h2>
+    </div>
+    <div class="swiper destacados-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide h-auto">{{ card_destacado("fa-solid fa-house-chimney", "Bono de Vivienda (BVIS)", "Aporte estatal para familias de escasos recursos conforme a la Ley Marco.", "/programas/") }}</div>
+        <div class="swiper-slide h-auto">{{ card_destacado("fa-solid fa-trowel-bricks", "Mejoramiento de Vivienda", "Intervenciones de mejora en vivienda existente.", "/programas/") }}</div>
+        <div class="swiper-slide h-auto">{{ card_destacado("fa-solid fa-diagram-project", "SIGEBO", "Sistema Integrado de Gestión del Bono de Vivienda de Interés Social.", "/sistemas/") }}</div>
+        <div class="swiper-slide h-auto">{{ card_destacado("fa-solid fa-folder-tree", "SIGEPO", "Sistema Integrado de Gestión de Proyectos.", "/sistemas/") }}</div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
-    <p class="eyebrow">Gobierno de la República de Honduras</p>
-    <h1 class="section-title">Secretaría de Vivienda y Asentamientos Humanos</h1>
-    <p class="editorial">Sitio institucional en construcción. Estamos preparando el contenido completo para usted.</p>
-    <a class="btn-sev" href="/nosotros/">Conozca la SEVIAH</a>
+    <div class="section-heading">
+      <p class="eyebrow">Sala de prensa</p>
+      <h2 class="section-title">Noticias</h2>
+    </div>
+    <div class="row g-4">
+      {% for n in noticias %}
+        {% if loop.index <= 3 %}
+          <div class="col-md-4">{{ card_noticia(n) }}</div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+      <a class="btn-sev" href="/noticias/">Mostrar Más</a>
+    </div>
+  </div>
+</section>
+
+{% set destacados = videos | selectattr("destacado") | list %}
+<section class="section section--oscuro">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Multimedia</p>
+      <h2 class="section-title">Videos institucionales</h2>
+    </div>
+    <div class="row g-4 justify-content-center">
+      {% for v in destacados %}
+        <div class="col-md-6 col-lg-4">{{ video_embed(v) }}</div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+      <a class="btn-sev" href="/multimedia/">Ver videoteca</a>
+    </div>
   </div>
 </section>
