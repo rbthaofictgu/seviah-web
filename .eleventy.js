@@ -1,4 +1,10 @@
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+
 module.exports = function (eleventyConfig) {
+  // Reescribe las URLs internas según pathPrefix (para GitHub Pages en subruta /<repo>/).
+  // Con pathPrefix "/" (local/root) es un no-op. Es transparente para el sitio.
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+
   // Activos estáticos: src/assets -> _site/assets (D-02/D-03)
   eleventyConfig.addPassthroughCopy("src/assets");
 
@@ -27,6 +33,8 @@ module.exports = function (eleventyConfig) {
     templateFormats: ["njk", "md", "html"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
-    pathPrefix: "/"
+    // Root por defecto (producción .gob.hn); en GitHub Pages de proyecto se define
+    // PATH_PREFIX=/<repo>/ en el workflow de despliegue.
+    pathPrefix: process.env.PATH_PREFIX || "/"
   };
 };
