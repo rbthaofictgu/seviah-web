@@ -1,0 +1,25 @@
+/* tokens.css — Identidad visual SEVIAH (D-02, docs/03 §1)
+   Fuente de verdad de color: NINGÚN hex vive fuera de este archivo. */
+:root {
+  /* Paleta institucional Gobierno de Honduras 2026-2030 */
+  --sev-dorado: #AD8411;        /* color primario de marca */
+  --sev-navy: #273A7F;          /* acento institucional */
+  --sev-oscuro: #231F20;        /* texto principal / fondos oscuros */
+  --sev-blanco: #FFFFFF;
+
+  /* Derivados permitidos (únicos tintes calculados admitidos) */
+  --sev-dorado-suave: #F5EEDC;  /* fondos de sección */
+  --sev-crema: #FAF7F0;         /* fondo alterno tarjetas */
+  --sev-gris-linea: #E5E0D5;    /* bordes sutiles */
+  --sev-verde-inst: #1F4D36;    /* verde institucional del arte Misión/Visión (uso secundario) */
+
+  /* Tipografía */
+  --sev-serif: Georgia, 'Times New Roman', serif;              /* titulares y cuerpo editorial */
+  --sev-sans: -apple-system, 'Segoe UI', Roboto, sans-serif;   /* UI auxiliar (nav, botones, tablas) */
+  --sev-mono: ui-monospace, 'Cascadia Mono', monospace;        /* solo datos técnicos */
+
+  /* Overrides de Bootstrap vía variables propias (no se edita su CSS — docs/03 §1) */
+  --bs-primary: var(--sev-dorado);
+  --bs-body-font-family: var(--sev-serif);
+  --bs-body-color: var(--sev-oscuro);
+}

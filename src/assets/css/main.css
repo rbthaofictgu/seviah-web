@@ -1,0 +1,4 @@
+/* main.css — SEVIAH. Estilos propios del sitio.
+   Los colores provienen exclusivamente de tokens.css (D-02).
+   S1: solo importa tokens. S2 añade layout y componentes. */
+@import "tokens.css";
