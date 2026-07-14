@@ -5,6 +5,18 @@ module.exports = function (eleventyConfig) {
   // Con pathPrefix "/" (local/root) es un no-op. Es transparente para el sitio.
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
+  // Normaliza atributos booleanos a forma abreviada (disabled, no disabled="").
+  // El re-serializado del EleventyHtmlBasePlugin (solo con pathPrefix != "/") los emite como
+  // ="" ; se dejan idénticos al build raíz para una salida consistente y válida (AA de estilo).
+  eleventyConfig.addTransform("normalizarBooleanos", (content, outputPath) => {
+    if (outputPath && outputPath.endsWith(".html")) {
+      return content.replace(
+        /\s(disabled|allowfullscreen|hidden|required|checked|selected|readonly|multiple|autofocus|novalidate|ismap|open|reversed|loop|muted|controls|autoplay|async|defer)=""/g,
+        " $1");
+    }
+    return content;
+  });
+
   // Activos estáticos: src/assets -> _site/assets (D-02/D-03)
   eleventyConfig.addPassthroughCopy("src/assets");
 
