@@ -35,9 +35,34 @@ _site/           salida generada (no se edita a mano)
 
 ## Activar videos
 
-Los videos nacen en estado **"Próximamente"**. Para activarlos, ver
-[`docs/planes/INSTRUCCIONES-YOUTUBE.md`](docs/planes/INSTRUCCIONES-YOUTUBE.md) §5 y la sección
-**Activar videos** más abajo (script `scripts/set-video-id.mjs`).
+Todo el sitio se construye completo aunque los videos aún no estén en YouTube: los que no
+tienen `youtube_id` se muestran como **"Próximamente"** (D-05). Activar un video es **una sola
+edición** en `src/_data/videos.json` — el resto del sitio (Inicio, Multimedia, Noticias) lo
+consume automáticamente. Guía humana completa (crear el canal, subir con metadata):
+[`docs/planes/INSTRUCCIONES-YOUTUBE.md`](docs/planes/INSTRUCCIONES-YOUTUBE.md).
+
+### Flujo (INSTRUCCIONES-YOUTUBE §5)
+
+1. Obtén el ID del video de su URL: en `https://www.youtube.com/watch?v=ABC123xyz45`, el ID es
+   `ABC123xyz45` (11 caracteres).
+2. Inyéctalo con el script (recomendado):
+
+   ```bash
+   node scripts/set-video-id.mjs <slug> <youtube_id>
+   # ejemplo:
+   node scripts/set-video-id.mjs v-07-sesion-planificacion Ab12Cd34Ef5
+   ```
+
+   El script valida que el slug exista y que el ID tenga el formato de YouTube. Para volver a
+   "Próximamente", pasa un ID vacío: `node scripts/set-video-id.mjs <slug> ""`.
+   (Alternativa manual: editar el campo `"youtube_id"` del video en `src/_data/videos.json`.)
+3. Reconstruye: `npx @11ty/eleventy`. El video pasa solo de "Próximamente" al reproductor
+   embebido (`youtube-nocookie.com`), sin tocar HTML.
+
+Slugs disponibles: `v-01-presentacion`, `v-02-incendio-yauyupe`, `v-03-congreso-riesgos`,
+`v-04-san-marcos`, `v-05-reunion-copeco`, `v-06-reunion-directiva`, `v-07-sesion-planificacion`,
+`v-08-seviah-en-accion`. El esquema del contrato está en
+[`src/_data/videos.schema.md`](src/_data/videos.schema.md).
 
 ## Metodología
 
