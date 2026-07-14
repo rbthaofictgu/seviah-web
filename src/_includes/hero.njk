@@ -1,0 +1,34 @@
+{#
+  hero.njk — Hero Swiper full-width (docs/03 §3).
+  slides: [{ variante: 'dorado'|'navy'|'verde', eyebrow, titulo, texto, cta_url, cta_texto }]
+  conH1: si true, el primer slide usa <h1> (encabezado principal de la página).
+#}
+{% macro hero(slides, conH1=false) %}
+<section class="hero">
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+      {% for s in slides %}
+      <div class="swiper-slide hero-slide hero-slide--{{ s.variante or 'navy' }}">
+        <div class="hero-slide__bg"></div>
+        <div class="hero-slide__overlay"></div>
+        <div class="container">
+          <div class="hero-slide__content">
+            {% if s.eyebrow %}<p class="hero-eyebrow eyebrow">{{ s.eyebrow }}</p>{% endif %}
+            {% if conH1 and loop.first %}
+              <h1 class="hero-title">{{ s.titulo }}</h1>
+            {% else %}
+              <p class="hero-title">{{ s.titulo }}</p>
+            {% endif %}
+            {% if s.texto %}<p class="hero-text">{{ s.texto }}</p>{% endif %}
+            {% if s.cta_url %}<a class="btn-sev" href="{{ s.cta_url }}">{{ s.cta_texto or 'Ver más' }}</a>{% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+{% endmacro %}

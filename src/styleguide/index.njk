@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+title: Guía de estilo
+description: Guía de estilo integradora de SEVIAH — prueba de fuego visual de los componentes (S2).
+---
+{% from "hero.njk" import hero %}
+{% from "card-destacado.njk" import card_destacado %}
+{% from "card-noticia.njk" import card_noticia %}
+{% from "en-construccion.njk" import en_construccion %}
+{% from "video-embed.njk" import video_embed %}
+
+{% set slidesDemo = [
+  { variante: "dorado", eyebrow: "Gobierno de la República de Honduras", titulo: "Construyendo un mejor futuro para Honduras", texto: "Slide de demostración del componente hero.", cta_url: "/programas/", cta_texto: "Ver programas" },
+  { variante: "navy", eyebrow: "SEVIAH", titulo: "Vivienda digna, segura y sostenible", texto: "Segundo slide de demostración.", cta_url: "/nosotros/", cta_texto: "Conócenos" }
+] %}
+
+{% set noticiasDemo = [
+  { slug: "demo-1", fecha: "Julio 2026", titulo: "Título de noticia de ejemplo", resumen: "Resumen breve de la noticia para demostrar la card de noticia del sistema de diseño." },
+  { slug: "demo-2", fecha: "Julio 2026", titulo: "Segunda noticia de ejemplo", resumen: "Otro resumen de demostración con extensión similar para verificar la retícula." },
+  { slug: "demo-3", fecha: "Julio 2026", titulo: "Tercera noticia de ejemplo", resumen: "Tercer resumen de demostración de la card de noticia institucional." }
+] %}
+
+{% set videoVertical = { titulo: "Video vertical de ejemplo (Próximamente)", descripcion: "Demostración del wrapper 9:16 sin youtube_id.", playlist: "SEVIAH en Acción", formato: "vertical", youtube_id: "" } %}
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Sistema de diseño</p>
+    <h1 class="section-title">Guía de estilo — SEVIAH</h1>
+    <p class="section-lead">Prueba de fuego visual de los componentes congelados en S2: hero, cards, "En construcción" y embed de video con sus dos estados.</p>
+  </div>
+</section>
+
+{{ hero(slidesDemo, false) }}
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading"><h2 class="section-title">Botones</h2></div>
+    <a class="btn-sev" href="#">Botón primario</a>
+    <a class="btn-sev-outline" href="#">Botón secundario</a>
+  </div>
+</section>
+
+<section class="section section--suave">
+  <div class="container">
+    <div class="section-heading"><h2 class="section-title">Destacados</h2></div>
+    <div class="row g-4">
+      <div class="col-md-4">{{ card_destacado("fa-solid fa-house-chimney", "Bono de Vivienda (BVIS)", "Aporte estatal para familias de escasos recursos.", "/programas/") }}</div>
+      <div class="col-md-4">{{ card_destacado("fa-solid fa-trowel-bricks", "Mejoramiento de Vivienda", "Intervenciones de mejora en vivienda existente.", "/programas/") }}</div>
+      <div class="col-md-4">{{ card_destacado("fa-solid fa-diagram-project", "SIGEBO", "Sistema Integrado de Gestión del Bono de Vivienda.", "/sistemas/") }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading"><h2 class="section-title">Noticias</h2></div>
+    <div class="row g-4">
+      {% for n in noticiasDemo %}
+        <div class="col-md-4">{{ card_noticia(n) }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--crema">
+  <div class="container">
+    <div class="section-heading"><h2 class="section-title">En construcción</h2></div>
+    <div class="row">
+      <div class="col-lg-6">{{ en_construccion() }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading"><h2 class="section-title">Embed de video</h2></div>
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-7">
+        <p class="eyebrow">Con ID (reproductor)</p>
+        {{ video_embed(videos[0], true) }}
+      </div>
+      <div class="col-lg-5">
+        <p class="eyebrow">Sin ID · vertical (Próximamente)</p>
+        {{ video_embed(videoVertical, true) }}
+      </div>
+    </div>
+  </div>
+</section>

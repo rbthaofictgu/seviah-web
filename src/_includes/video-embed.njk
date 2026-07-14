@@ -1,0 +1,29 @@
+{#
+  video-embed.njk — Contrato de video (D-04, D-05; docs/04 §5).
+  Recibe un objeto del esquema videos.json.
+  - Con youtube_id  -> iframe youtube-nocookie.com/embed/<id>?rel=0 (lazy, con title).
+  - Sin youtube_id  -> estado "Próximamente" (misma caja, sin iframe).
+  - formato "vertical" -> wrapper 9:16 (máx. 420px); "horizontal" -> 16:9.
+#}
+{% macro video_embed(video, caption=false) %}
+<div class="video-embed video-embed--{{ 'vertical' if video.formato == 'vertical' else 'horizontal' }}" data-playlist="{{ video.playlist }}">
+  <div class="video-embed__frame">
+    {% if video.youtube_id %}
+      <iframe src="https://www.youtube-nocookie.com/embed/{{ video.youtube_id }}?rel=0"
+              title="{{ video.titulo }}"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    {% else %}
+      <div class="video-embed__pending">
+        <i class="fa-solid fa-clapperboard video-embed__pending-icon" aria-hidden="true"></i>
+        <span class="video-embed__badge">Próximamente</span>
+        <p class="video-embed__pending-title">{{ video.titulo }}</p>
+      </div>
+    {% endif %}
+  </div>
+  {% if caption %}
+    <p class="video-embed__caption"><span class="video-embed__caption-title">{{ video.titulo }}</span> — {{ video.descripcion }}</p>
+  {% endif %}
+</div>
+{% endmacro %}

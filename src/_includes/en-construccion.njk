@@ -1,0 +1,11 @@
+{#
+  en-construccion.njk — Componente estándar "En construcción" (D-06; docs/03 §3).
+  Toda sección sin información pública verificada usa este componente. Nunca se inventa contenido.
+#}
+{% macro en_construccion(titulo="Sección en construcción", texto="Estamos preparando esta información para usted.") %}
+<div class="en-construccion">
+  <div class="en-construccion__icon"><i class="fa-solid fa-person-digging" aria-hidden="true"></i></div>
+  <p class="en-construccion__title">{{ titulo }}</p>
+  <p class="en-construccion__text">{{ texto }}</p>
+</div>
+{% endmacro %}

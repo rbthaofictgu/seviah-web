@@ -1,0 +1,13 @@
+[
+  {
+    "slug": "v-00-ejemplo",
+    "titulo": "Video de ejemplo — contrato videos.json",
+    "descripcion": "Registro de ejemplo que demuestra el contrato de datos congelado en S2. Se elimina al poblar el inventario real en S4.",
+    "playlist": "Institucional",
+    "fecha": "2026-07",
+    "formato": "horizontal",
+    "youtube_id": "dQw4w9WgXcQ",
+    "destacado": true,
+    "ejemplo": true
+  }
+]

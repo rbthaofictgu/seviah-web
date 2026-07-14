@@ -1,0 +1,11 @@
+{#
+  card-destacado.njk — Card de "Destacados" (docs/03 §3): icono dorado, título navy, texto oscuro.
+#}
+{% macro card_destacado(icono, titulo, texto, url="", cta="Ver más") %}
+<div class="card-destacado">
+  <div class="card-destacado__icon"><i class="{{ icono }}" aria-hidden="true"></i></div>
+  <h3 class="card-destacado__title">{{ titulo }}</h3>
+  <p class="card-destacado__text">{{ texto }}</p>
+  {% if url %}<a class="btn-sev-outline" href="{{ url }}">{{ cta }}</a>{% endif %}
+</div>
+{% endmacro %}

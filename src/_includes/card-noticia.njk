@@ -1,0 +1,15 @@
+{#
+  card-noticia.njk — Card de noticia (docs/03 §3). Recibe un objeto de noticias.json
+  { slug, titulo, fecha, resumen }. El enlace apunta al ancla en /noticias/.
+#}
+{% macro card_noticia(noticia) %}
+<article class="card-noticia">
+  <div class="card-noticia__media"><i class="fa-regular fa-newspaper" aria-hidden="true"></i></div>
+  <div class="card-noticia__body">
+    <p class="card-noticia__date">{{ noticia.fecha }}</p>
+    <h3 class="card-noticia__title">{{ noticia.titulo }}</h3>
+    <p class="card-noticia__excerpt">{{ noticia.resumen }}</p>
+    <a class="card-noticia__link" href="/noticias/#{{ noticia.slug }}">Leer más <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</article>
+{% endmacro %}
