@@ -8,8 +8,8 @@
 | S1 fundacion-repo-y-marca | — | — | COMPLETADO | — | — |
 | S2 layout-y-componentes | S1 | — | COMPLETADO | — | — |
 | S3 paginas-y-contenido | S2 | S4 | COMPLETADO | — | — |
-| S4 multimedia-y-videos | S2 | S3 | EN_CURSO | — | — |
-| S5 transparencia-qa-despliegue | S3, S4 | — | FUERA_DE_ALCANCE | — | — |
+| S4 multimedia-y-videos | S2 | S3 | COMPLETADO | — | — |
+| S5 transparencia-qa-despliegue | S3, S4 | — | HABILITADO (fuera de alcance de esta sesión) | — | — |
 
 ## Registro de desviaciones
 - 2026-07-14 · Ejecución S1→S4 de corrido sin paradas de revisión por plan (excepción a
