@@ -5,6 +5,14 @@ module.exports = function (eleventyConfig) {
   // Filtro utilitario para año/fecha de "última actualización" del footer (docs/02 §9)
   eleventyConfig.addFilter("anio", (value) => String(value).slice(0, 4));
 
+  // Fecha de última actualización del footer (docs/02 §9), en español
+  eleventyConfig.addGlobalData("actualizado", () => {
+    const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio",
+      "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+    const d = new Date();
+    return `${meses[d.getMonth()]} de ${d.getFullYear()}`;
+  });
+
   return {
     dir: {
       input: "src",

@@ -1,0 +1,45 @@
+{% set nav = [
+  { label: "Inicio", url: "/" },
+  { label: "Nosotros", url: "/nosotros/" },
+  { label: "Autoridades", url: "/autoridades/" },
+  { label: "Programas", url: "/programas/" },
+  { label: "Sistemas", url: "/sistemas/" },
+  { label: "Noticias", url: "/noticias/" },
+  { label: "Multimedia", url: "/multimedia/" },
+  { label: "Transparencia", url: "/transparencia/" },
+  { label: "Contacto", url: "/contacto/" }
+] %}
+<header class="site-header">
+  <div class="gov-strip"></div>
+  <div class="brand-bar">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a class="brand-lockup" href="/">
+        <img class="brand-escudo" src="/assets/img/logo-gobierno.png" width="70" height="46"
+             alt="Escudo del Gobierno de la República de Honduras">
+        <span class="brand-text">
+          <span class="brand-name">SEVIAH</span>
+          <span class="brand-sub">Secretaría de Vivienda y Asentamientos Humanos</span>
+        </span>
+      </a>
+      <span class="brand-lema d-none d-lg-inline">Construyendo un mejor futuro para Honduras</span>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg site-nav" data-bs-theme="dark" aria-label="Navegación principal">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Abrir menú de navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          {% for item in nav %}
+            {% set esActivo = (page.url == item.url) if item.url == "/" else (item.url in page.url) %}
+            <li class="nav-item">
+              <a class="nav-link{{ ' active' if esActivo }}" href="{{ item.url }}"{% if esActivo %} aria-current="page"{% endif %}>{{ item.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
