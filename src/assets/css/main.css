@@ -205,6 +205,19 @@ a:hover { color: var(--sev-dorado); }
 .playlist-filtro:hover, .playlist-filtro.is-active { background: var(--sev-navy); color: var(--sev-blanco); }
 .video-card__meta { font-family: var(--sev-sans); font-size: .8rem; color: var(--sev-dorado); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
 
+/* ===== Transparencia (acordeón Art. 13) ===== */
+.enlace-oficial { display: flex; gap: 1rem; align-items: flex-start; }
+.enlace-oficial__icon {
+  flex: 0 0 auto; width: 48px; height: 48px; border-radius: 10px;
+  background: var(--sev-crema); color: var(--sev-dorado); display: grid; place-items: center; font-size: 1.3rem;
+}
+.acordeon-art13 .accordion-button {
+  font-family: var(--sev-sans); font-weight: 600; color: var(--sev-navy); background: var(--sev-blanco);
+}
+.acordeon-art13 .accordion-button:not(.collapsed) { color: var(--sev-navy); background: var(--sev-dorado-suave); }
+.acordeon-art13 .accordion-button:focus { box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--sev-dorado) 45%, transparent); }
+.acordeon-art13 .accordion-item { border-color: var(--sev-gris-linea); }
+
 /* ===== Footer ===== */
 .site-footer {
   background: var(--sev-oscuro); color: color-mix(in srgb, var(--sev-blanco) 85%, transparent);

@@ -1,0 +1,99 @@
+---
+layout: layouts/base.njk
+title: Transparencia
+description: Portal de Transparencia de la SEVIAH — Portal Único de Transparencia, SIELHO, Oficial de Información Pública e información de oficio (Art. 13, Decreto 170-2006).
+---
+{% from "en-construccion.njk" import en_construccion %}
+{% set categorias_art13 = [
+  "Estructura orgánica y funciones",
+  "Servicios que presta la institución",
+  "Presupuesto y ejecución presupuestaria",
+  "Contrataciones, compras y licitaciones",
+  "Remuneraciones y estructura de salarios",
+  "Planes operativos, programas y proyectos",
+  "Marco normativo aplicable"
+] %}
+
+<section class="section section--suave">
+  <div class="container">
+    <p class="eyebrow">Acceso a la información pública</p>
+    <h1 class="section-title">Transparencia</h1>
+    <p class="section-lead">La Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) da cumplimiento a la Ley de Transparencia y Acceso a la Información Pública (Decreto 170-2006 y su reforma), poniendo a disposición de la ciudadanía la información de oficio del sector.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Portales nacionales</p>
+      <h2 class="section-title">Enlaces institucionales</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="ficha h-100">
+          <div class="enlace-oficial">
+            <div class="enlace-oficial__icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
+            <div>
+              <h3 class="ficha__title">Portal Único de Transparencia</h3>
+              <p class="ficha__body">Portal nacional de transparencia administrado por el Instituto de Acceso a la Información Pública (IAIP).</p>
+              <a class="btn-sev-outline" href="https://portalunico.iaip.gob.hn/" rel="noopener" target="_blank">portalunico.iaip.gob.hn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="ficha h-100">
+          <div class="enlace-oficial">
+            <div class="enlace-oficial__icon"><i class="fa-solid fa-file-shield" aria-hidden="true"></i></div>
+            <div>
+              <h3 class="ficha__title">SIELHO</h3>
+              <p class="ficha__body">Sistema de Información Electrónica de Honduras para solicitudes de acceso a la información pública.</p>
+              <a class="btn-sev-outline" href="https://sielho.iaip.gob.hn/" rel="noopener" target="_blank">sielho.iaip.gob.hn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--crema">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Atención al ciudadano</p>
+      <h2 class="section-title">Oficial de Información Pública (OIP)</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        <p class="section-lead mb-3">El Oficial de Información Pública (OIP) es el enlace institucional para las solicitudes de acceso a la información. La designación oficial y sus datos de contacto se publicarán en esta sección.</p>
+        {{ en_construccion("OIP en construcción", "La designación del Oficial de Información Pública y sus datos de contacto estarán disponibles próximamente.") }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Decreto 170-2006, Art. 13</p>
+      <h2 class="section-title">Información de oficio</h2>
+    </div>
+    <p class="section-lead mb-4">Categorías de información pública de oficio conforme al Artículo 13 de la Ley de Transparencia y Acceso a la Información Pública (Decreto 170-2006). Cada categoría se publicará al recibir la documentación oficial correspondiente.</p>
+    <div class="accordion acordeon-art13" id="art13">
+      {% for cat in categorias_art13 %}
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a13-{{ loop.index }}" aria-expanded="false" aria-controls="a13-{{ loop.index }}">
+              {{ loop.index }}. {{ cat }}
+            </button>
+          </h3>
+          <div id="a13-{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#art13">
+            <div class="accordion-body">
+              {{ en_construccion("En construcción", "Estamos preparando esta información de oficio para usted.") }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
