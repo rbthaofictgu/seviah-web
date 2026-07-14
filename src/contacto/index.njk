@@ -1,0 +1,61 @@
+---
+layout: layouts/base.njk
+title: Contacto
+description: Contacto de la Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — Gobierno de la República de Honduras.
+---
+{% from "en-construccion.njk" import en_construccion %}
+<section class="section section--suave">
+  <div class="container">
+    <p class="eyebrow">Estamos para servirle</p>
+    <h1 class="section-title">Contacto</h1>
+    <p class="section-lead">Canales de comunicación de la Secretaría de Vivienda y Asentamientos Humanos.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-5">
+        <div class="ficha h-100">
+          <h2 class="ficha__title">Datos de contacto</h2>
+          <p class="ficha__body mb-2"><strong>Dirección:</strong> <span class="badge-estado">En construcción</span></p>
+          <p class="ficha__body mb-3"><strong>Teléfonos:</strong> <span class="badge-estado">En construcción</span></p>
+          <h3 class="ficha__title">Síguenos</h3>
+          <p class="ficha__body mb-1">
+            <a href="{{ contenido.contacto.facebook }}" rel="noopener" target="_blank">
+              <i class="fa-brands fa-facebook" aria-hidden="true"></i> facebook.com/seviah.hn
+            </a>
+          </p>
+          <p class="ficha__body mb-0">Otras redes sociales oficiales: <span class="badge-estado">En construcción</span></p>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="ficha h-100">
+          <h2 class="ficha__title">Escríbanos</h2>
+          <div class="form-nota mb-3" role="note">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            Formulario en construcción: este es un sitio estático sin backend. La recepción de mensajes estará disponible próximamente.
+          </div>
+          <form aria-label="Formulario de contacto (deshabilitado)">
+            <fieldset disabled>
+              <legend class="form-label">Datos del mensaje</legend>
+              <div class="mb-3">
+                <label class="form-label" for="c-nombre">Nombre</label>
+                <input class="form-control" id="c-nombre" name="nombre" type="text" autocomplete="name">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="c-correo">Correo electrónico</label>
+                <input class="form-control" id="c-correo" name="correo" type="email" autocomplete="email">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="c-mensaje">Mensaje</label>
+                <textarea class="form-control" id="c-mensaje" name="mensaje" rows="4"></textarea>
+              </div>
+              <button class="btn-sev" type="submit">Enviar (próximamente)</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
