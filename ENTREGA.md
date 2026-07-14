@@ -8,22 +8,19 @@ identidad propia de SEVIAH. Construye en verde desde clon limpio, pasa el QA int
 
 ## 1. URL de staging (GitHub Pages)
 
-El workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) publica el sitio en
-**GitHub Pages** en cada push a `main`. Para activarlo (paso humano, requiere el remoto):
+### ✅ EN VIVO: https://rbthaofictgu.github.io/seviah-web/
 
-1. Crear el repositorio remoto y hacer `git push` de `main`.
-2. En GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. Esperar el run `deploy` en verde. La URL será:
-   - **Pages de proyecto:** `https://<usuario>.github.io/seviah-web/` (el workflow ajusta las
-     rutas con `PATH_PREFIX` automáticamente).
-   - **Dominio propio / usuario-Pages (raíz):** definir la variable de repositorio
-     `PATH_PREFIX = "/"` (Settings → Secrets and variables → Actions → Variables).
-4. Verificación: `curl -s -o /dev/null -w "%{http_code}" <URL>` → `200`;
-   `curl -s <URL> | grep -c "SEVIAH"` → ≥1.
+Repositorio: `github.com/rbthaofictgu/seviah-web` (privado). El workflow
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) reconstruye y republica el sitio
+en **GitHub Pages** en cada push a `main` (Source: GitHub Actions; Pages ya habilitado).
 
-> Estado en esta sesión: sin remoto GitHub conectado, por lo que el despliegue en vivo queda
-> como paso humano. El workflow, el build y la validación están verificados en local.
-> Producción en dominio **.gob.hn** queda fuera de alcance (trámite institucional, D-10).
+Verificado en vivo (2026-07-14): Inicio `200`, `grep SEVIAH` = 12, CSS/favicon/rutas internas
+`200` (prefijo `/seviah-web/` aplicado automáticamente por `PATH_PREFIX`), y los 5 embeds reales
+de YouTube presentes en `/multimedia/`.
+
+- **Dominio propio / usuario-Pages (raíz):** definir la variable de repositorio
+  `PATH_PREFIX = "/"` (Settings → Secrets and variables → Actions → Variables) y el `CNAME`.
+- **Producción en dominio .gob.hn:** fuera de alcance (trámite institucional, D-10).
 
 ## 2. Estado de cada sección
 
