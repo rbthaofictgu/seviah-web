@@ -20,6 +20,8 @@ description: Guía de estilo integradora de SEVIAH — prueba de fuego visual de
   { slug: "demo-3", fecha: "Julio 2026", titulo: "Tercera noticia de ejemplo", resumen: "Tercer resumen de demostración de la card de noticia institucional." }
 ] %}
 
+{# Datos de muestra fijos: la guía de estilo es una referencia estable, independiente de videos.json #}
+{% set videoEjemplo = { titulo: "Video de ejemplo (reproductor)", descripcion: "Demostración del wrapper 16:9 con youtube_id.", playlist: "Institucional", formato: "horizontal", youtube_id: "dQw4w9WgXcQ" } %}
 {% set videoVertical = { titulo: "Video vertical de ejemplo (Próximamente)", descripcion: "Demostración del wrapper 9:16 sin youtube_id.", playlist: "SEVIAH en Acción", formato: "vertical", youtube_id: "" } %}
 
 <section class="section">
@@ -77,7 +79,7 @@ description: Guía de estilo integradora de SEVIAH — prueba de fuego visual de
     <div class="row g-4 align-items-start">
       <div class="col-lg-7">
         <p class="eyebrow">Con ID (reproductor)</p>
-        {{ video_embed(videos[0], true) }}
+        {{ video_embed(videoEjemplo, true) }}
       </div>
       <div class="col-lg-5">
         <p class="eyebrow">Sin ID · vertical (Próximamente)</p>
