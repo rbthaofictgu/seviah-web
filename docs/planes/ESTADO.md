@@ -5,10 +5,10 @@
 
 | Plan | Depende de | Paralelo con | Estado | Issue | Cierre |
 |---|---|---|---|---|---|
-| S1 fundacion-repo-y-marca | — | — | EN_CURSO | — | — |
-| S2 layout-y-componentes | S1 | — | NO_INICIADO | — | — |
-| S3 paginas-y-contenido | S2 | S4 | NO_INICIADO | — | — |
-| S4 multimedia-y-videos | S2 | S3 | NO_INICIADO | — | — |
+| S1 fundacion-repo-y-marca | — | — | COMPLETADO | — | — |
+| S2 layout-y-componentes | S1 | — | COMPLETADO | — | — |
+| S3 paginas-y-contenido | S2 | S4 | COMPLETADO | — | — |
+| S4 multimedia-y-videos | S2 | S3 | EN_CURSO | — | — |
 | S5 transparencia-qa-despliegue | S3, S4 | — | FUERA_DE_ALCANCE | — | — |
 
 ## Registro de desviaciones

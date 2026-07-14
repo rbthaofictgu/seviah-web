@@ -1,13 +1,82 @@
 [
   {
-    "slug": "v-00-ejemplo",
-    "titulo": "Video de ejemplo — contrato videos.json",
-    "descripcion": "Registro de ejemplo que demuestra el contrato de datos congelado en S2. Se elimina al poblar el inventario real en S4.",
+    "slug": "v-01-presentacion",
+    "titulo": "Presentación acerca de la SEVIAH",
+    "descripcion": "Conozca a la Secretaría de Vivienda y Asentamientos Humanos (SEVIAH): el ente rector de la política pública de vivienda y asentamientos humanos de Honduras. Construyendo un mejor futuro para Honduras.",
     "playlist": "Institucional",
     "fecha": "2026-07",
+    "formato": "vertical",
+    "youtube_id": "aNnWWmHIFck",
+    "destacado": true
+  },
+  {
+    "slug": "v-02-incendio-yauyupe",
+    "titulo": "Incendio en Yauyupe, El Paraíso — familia recibirá vivienda donada",
+    "descripcion": "SEVIAH atiende a familia afectada por un incendio en Yauyupe, departamento de El Paraíso, a la que se le donará una vivienda como parte de la atención a emergencias del sector.",
+    "playlist": "SEVIAH en Acción",
+    "fecha": "2026-07",
     "formato": "horizontal",
-    "youtube_id": "dQw4w9WgXcQ",
-    "destacado": true,
-    "ejemplo": true
+    "youtube_id": "hEfnJHZazQs",
+    "destacado": true
+  },
+  {
+    "slug": "v-03-congreso-riesgos",
+    "titulo": "Congreso Municipal Sobre Gestión de Riesgos",
+    "descripcion": "Participación institucional de SEVIAH en el Congreso Municipal Sobre Gestión de Riesgos, en articulación con el sistema municipal de gestión de riesgos.",
+    "playlist": "Eventos",
+    "fecha": "2026-07",
+    "formato": "horizontal",
+    "youtube_id": "0j6D0WiDIfQ",
+    "destacado": false
+  },
+  {
+    "slug": "v-04-san-marcos",
+    "titulo": "Socialización del programa de mejoramiento de vivienda — San Marcos de Colón, Choluteca",
+    "descripcion": "SEVIAH socializa con la comunidad el programa de mejoramiento de vivienda en San Marcos de Colón, departamento de Choluteca.",
+    "playlist": "Programas",
+    "fecha": "2026-07",
+    "formato": "vertical",
+    "youtube_id": "DvwxLSemoGM",
+    "destacado": true
+  },
+  {
+    "slug": "v-05-reunion-copeco",
+    "titulo": "Reunión conjunta de trabajo con COPECO",
+    "descripcion": "Mesa de trabajo interinstitucional entre SEVIAH y la Comisión Permanente de Contingencias (COPECO) para la coordinación de acciones del sector vivienda y gestión de riesgos.",
+    "playlist": "SEVIAH en Acción",
+    "fecha": "2026-07",
+    "formato": "vertical",
+    "youtube_id": "9F-tIfl2b8k",
+    "destacado": false
+  },
+  {
+    "slug": "v-06-reunion-directiva",
+    "titulo": "Reunión de trabajo con equipo directivo",
+    "descripcion": "Sesión de trabajo del equipo de SEVIAH. (Título y descripción por confirmar.)",
+    "playlist": "SEVIAH en Acción",
+    "fecha": "2026-07",
+    "formato": "vertical",
+    "youtube_id": "",
+    "destacado": false
+  },
+  {
+    "slug": "v-07-sesion-planificacion",
+    "titulo": "Sesión ejecutiva de planificación",
+    "descripcion": "Sesión ejecutiva de planificación institucional de SEVIAH. (Título y descripción por confirmar.)",
+    "playlist": "SEVIAH en Acción",
+    "fecha": "2026-07",
+    "formato": "horizontal",
+    "youtube_id": "",
+    "destacado": false
+  },
+  {
+    "slug": "v-08-seviah-en-accion",
+    "titulo": "SEVIAH en Acción — trabajo en territorio",
+    "descripcion": "Recorrido del equipo de SEVIAH en territorio, atendiendo de cerca a las familias hondureñas. (Descripción por confirmar.)",
+    "playlist": "SEVIAH en Acción",
+    "fecha": "2026-07",
+    "formato": "horizontal",
+    "youtube_id": "",
+    "destacado": false
   }
 ]
