@@ -1,0 +1,43 @@
+---
+layout: layouts/base.njk
+title: Multimedia
+description: Videoteca institucional de la Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — videos por playlist.
+---
+{% from "video-embed.njk" import video_embed %}
+{% set playlists = ["Institucional", "Programas", "Eventos", "SEVIAH en Acción"] %}
+
+<section class="section section--suave">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-lg-8">
+        <p class="eyebrow">Videoteca institucional</p>
+        <h1 class="section-title">Multimedia</h1>
+        <p class="section-lead mb-0">Videos de la Secretaría de Vivienda y Asentamientos Humanos, organizados por playlist. Los videos que aún no se han publicado en el canal se muestran como pendientes.</p>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a class="btn-sev" href="#">Suscríbete a nuestro canal</a>
+        <p class="mt-2 mb-0"><span class="badge-estado">Canal de YouTube en construcción</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="playlist-filtros" role="group" aria-label="Filtrar videos por playlist">
+      <button class="playlist-filtro is-active" type="button" data-playlist-filtro="todas">Todas</button>
+      {% for pl in playlists %}
+        <button class="playlist-filtro" type="button" data-playlist-filtro="{{ pl }}">{{ pl }}</button>
+      {% endfor %}
+    </div>
+
+    <div class="row g-4">
+      {% for v in videos %}
+        <div class="col-md-6 col-lg-4" data-playlist="{{ v.playlist }}">
+          <p class="video-card__meta">{{ v.playlist }}</p>
+          {{ video_embed(v, true) }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

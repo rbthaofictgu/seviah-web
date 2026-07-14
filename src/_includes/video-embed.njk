@@ -6,7 +6,7 @@
   - formato "vertical" -> wrapper 9:16 (máx. 420px); "horizontal" -> 16:9.
 #}
 {% macro video_embed(video, caption=false) %}
-<div class="video-embed video-embed--{{ 'vertical' if video.formato == 'vertical' else 'horizontal' }}" data-playlist="{{ video.playlist }}">
+<div class="video-embed video-embed--{{ 'vertical' if video.formato == 'vertical' else 'horizontal' }}">
   <div class="video-embed__frame">
     {% if video.youtube_id %}
       <iframe src="https://www.youtube-nocookie.com/embed/{{ video.youtube_id }}?rel=0"
