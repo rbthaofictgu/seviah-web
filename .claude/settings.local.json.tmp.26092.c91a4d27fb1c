@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git show-ref *)",
+      "Read(//home/sa/work/seviah/**)",
+      "Read(//home/sa/work/**)",
+      "Bash(npm --version)",
+      "Bash(git --version)",
+      "Bash(npm install *)",
+      "Bash(npx @11ty/eleventy --version)",
+      "Bash(npx @11ty/eleventy)",
+      "Bash(npx html-validate *)",
+      "Bash(git config *)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m 'chore: bootstrap repo Eleventy 3 y estructura E-18 \\(S1-T1\\) *)"
+    ]
+  }
+}

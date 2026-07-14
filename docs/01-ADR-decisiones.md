@@ -1,0 +1,60 @@
+# ADR — Registro de decisiones · Sitio web institucional SEVIAH
+### v1 · 2026-07-13 · Fuente de verdad de decisiones para todos los planes
+
+> Formato: **Decisión · Alternativa descartada · Justificación**. Los planes citan D-nn.
+> Ninguna decisión de aquí puede "mejorarse" por un agente sin protocolo `duda:`.
+
+## D-01 — Clon estructural, no visual
+**Decisión:** Replicar la **estructura y navegación** de www.sit.gob.hn (header con escudo, hero/slider, "Destacados", "Noticias" con "Mostrar Más", páginas Nosotros/Programas, subsección de transparencia, footer institucional) con la **identidad visual completa de SEVIAH**.
+**Descartada:** Clon visual pixel-perfect del diseño de la SIT.
+**Justificación:** Confirmado por el usuario (RTBM). Lo replicable es el patrón institucional; la identidad es propia.
+
+## D-02 — Identidad visual SEVIAH (tokens obligatorios)
+**Decisión:** Paleta institucional del Gobierno 2026-2030: dorado `#AD8411`, navy `#273A7F`, oscuro `#231F20`, sobre fondo blanco. Tipografía **Georgia** (serif de sistema, sin CDN de fuentes) con fallback `-apple-system` para UI auxiliar. Escudo nacional sobre fondo blanco o blanco sobre fondo dorado (nunca alterado). Todos los colores viven en `tokens.css` como variables CSS.
+**Descartada:** Google Fonts / tipografías externas; hex sueltos en el CSS.
+**Justificación:** Manual de marca del Gobierno de Honduras 2026-2030 provisto por el usuario; disciplina de tokens habilita QA por `grep`.
+
+## D-03 — Librerías externas permitidas (CDN)
+**Decisión:** Se permiten CDN: **Bootstrap 5.3** (grid/navbar), **Swiper 11** (hero y carrusel de destacados), **Font Awesome 6** (iconografía). Prohibido descargar o empotrar activos propiedad del sitio de la SIT (imágenes, SVG del logo SIT, scripts propios).
+**Descartada:** Restricción "cero JS/CDN" de artefactos anteriores; empotrar librerías del sitio original.
+**Justificación:** Autorización explícita del usuario para este proyecto; respeto de propiedad de activos de terceros.
+
+## D-04 — Videos en YouTube, nunca en el repositorio
+**Decisión:** Los videos institucionales se hospedan en un **canal de marca de YouTube** ("SEVIAH Honduras"). El sitio los consume mediante iframes responsivos `https://www.youtube-nocookie.com/embed/<ID>?rel=0` en wrapper 16:9 (`aspect-ratio: 16/9`), con `title` y `allowfullscreen`. Los archivos MP4 **jamás** entran al repositorio ni al hosting.
+**Descartada:** Video autohospedado (`<video>` + MP4 en el servidor); embeds de Facebook como vía principal.
+**Justificación:** Peso (51 MB actuales y creciendo), streaming adaptativo, cero costo de ancho de banda, práctica estándar gubernamental. Facebook (/seviah.hn) queda como refuerzo, no como fuente del sitio.
+
+## D-05 — Contrato `videos.json` (congelado en S2)
+**Decisión:** Registro central `src/_data/videos.json`: array de objetos `{slug, titulo, descripcion, playlist, fecha, youtube_id, destacado}`. Si `youtube_id` está vacío ⇒ la tarjeta se renderiza en estado **"Próximamente"** (sin iframe). Inyectar los IDs cuando existan es la única edición necesaria para activar los videos.
+**Descartada:** IDs quemados en el HTML de cada página.
+**Justificación:** Los videos aún no están en YouTube; el sitio debe nacer completo y activarse con una edición puntual. Este archivo es el contrato entre S3 (consume) y S4 (puebla).
+
+## D-06 — Componente "En construcción"
+**Decisión:** Toda sección sin información pública verificada usa el componente estándar `en-construccion` (icono, mensaje institucional, fecha estimada opcional). Nunca se inventa contenido para rellenar.
+**Descartada:** Omitir las secciones; rellenar con lorem ipsum o datos supuestos.
+**Justificación:** Instrucción del usuario; integridad de la información pública.
+
+## D-07 — Nomenclatura institucional innegociable
+**Decisión:** Nombre oficial: **Secretaría de Vivienda y Asentamientos Humanos (SEVIAH)** — nunca "SEVAH". **SIGEBO** (Sistema Integrado de Gestión del Bono de Vivienda de Interés Social) y **SIGEPO** (Sistema Integrado de Gestión de Proyectos) son **dos sistemas distintos**: prohibido conflarlos. **SISOCS no se menciona en ninguna parte del sitio.** Campo de identificación: "Número de Documento de Identificación (DNI)". Lema: "Construyendo un mejor futuro para Honduras".
+**Descartada:** —
+**Justificación:** Estándares del proyecto SEVIAH ya establecidos (Decreto 173-2019, logo oficial, lineamientos del engagement).
+
+## D-08 — Cumplimiento de transparencia antes de publicar
+**Decisión:** El sitio incluye sección **Transparencia** con: enlace al Portal Único de Transparencia (portalunico.iaip.gob.hn), enlace al SIELHO (sielho.iaip.gob.hn), referencia al Oficial de Información Pública (OIP — dato "En construcción" hasta designación), y esqueleto de información de oficio del Art. 13 (Decreto 170-2006). No se publica en dominio .gob.hn sin esta sección operativa.
+**Descartada:** Dejar transparencia para una fase posterior al lanzamiento.
+**Justificación:** Obligación legal (Ley de Transparencia y Acceso a la Información Pública) y patrón verificado en transparencia.sit.gob.hn.
+
+## D-09 — Generador estático: Eleventy 3 *(supuesto adoptado — puede revertirse)*
+**Decisión:** El sitio se construye con **Eleventy 3** (plantillas Nunjucks + datos JSON) con salida **HTML estático puro** en `_site/`. El hosting final solo recibe HTML/CSS/JS estáticos.
+**Descartada:** HTML plano duplicado a mano (header/footer copiados en cada página — frágil al mantener); WordPress (requiere hosting PHP+BD y administración).
+**Justificación:** Multipágina con layout compartido y contenido en datos (videos.json, noticias) exige templating; la salida sigue siendo estática y desplegable en cualquier hosting. **Si el usuario prefiere HTML plano sin tooling, se declara vía `duda:` antes de S1-T1 y S1 se ajusta.**
+
+## D-10 — Despliegue por etapas
+**Decisión:** Staging en **GitHub Pages** (rama `gh-pages` o Actions) para revisión del usuario y de SEVIAH. Producción futura en hosting institucional bajo dominio **.gob.hn** (registro vía NIC-HN/RDS-HN) — fuera del alcance de este paquete.
+**Descartada:** Publicar directo a producción.
+**Justificación:** RTBM revisa antes de aprobar ("Revisemos antes de comenzar"); el dominio .gob.hn requiere trámite institucional.
+
+## D-11 — Contenido verificable y atribución
+**Decisión:** Todo contenido factual del seed proviene de `docs/02-mapa-de-sitio-y-contenido-seed.md` (con fuentes). Cifras provenientes de declaraciones de prensa (meta 20,000 viviendas, déficit 1.6M) se redactan como **metas/declaraciones**, no como resultados. Misión/Visión/Valores: los provistos oficialmente por el usuario (arte institucional).
+**Descartada:** Redacción libre del agente sobre datos institucionales.
+**Justificación:** Sitio gubernamental: exactitud ante todo; el agente no inventa datos (regla E-18).

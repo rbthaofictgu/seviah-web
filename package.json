@@ -1,0 +1,18 @@
+{
+  "name": "seviah-web",
+  "version": "0.1.0",
+  "description": "Sitio web institucional de la Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — Gobierno de la República de Honduras. Generado con Eleventy 3 (E-18).",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "validate": "html-validate \"_site/**/*.html\"",
+    "links": "linkinator _site --recurse --skip \"youtube|facebook|iaip|gob.hn\""
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "html-validate": "^9.0.0",
+    "linkinator": "^6.1.0"
+  }
+}
