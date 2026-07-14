@@ -2,3 +2,7 @@ node_modules/
 _site/
 .DS_Store
 npm-debug.log*
+qa/lighthouse-inicio.json
+
+.claude/settings.local.json
+.claude/*.tmp*

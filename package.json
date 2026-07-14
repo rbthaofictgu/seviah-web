@@ -12,7 +12,10 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@axe-core/playwright": "^4.12.1",
+    "axe-core": "^4.12.1",
     "html-validate": "^9.0.0",
-    "linkinator": "^6.1.0"
+    "linkinator": "^6.1.0",
+    "playwright": "^1.55.0"
   }
 }

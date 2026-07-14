@@ -12,6 +12,7 @@
   --sev-crema: #FAF7F0;         /* fondo alterno tarjetas */
   --sev-gris-linea: #E5E0D5;    /* bordes sutiles */
   --sev-verde-inst: #1F4D36;    /* verde institucional del arte Misión/Visión (uso secundario) */
+  --sev-dorado-texto: #7A5E0C;  /* dorado oscurecido para texto pequeño sobre fondo claro (AA, docs/03 §4) */
 
   /* Tipografía */
   --sev-serif: Georgia, 'Times New Roman', serif;              /* titulares y cuerpo editorial */

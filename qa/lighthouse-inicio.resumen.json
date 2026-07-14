@@ -1,0 +1,16 @@
+{
+  "fetchTime": "2026-07-14T20:19:55.979Z",
+  "finalUrl": "http://localhost:8099/",
+  "lighthouseVersion": "12.8.2",
+  "scores": {
+    "performance": 89,
+    "accessibility": 96
+  },
+  "metrics": {
+    "FCP": "0.7 s",
+    "LCP": "0.8 s",
+    "TBT": "0 ms",
+    "CLS": "0",
+    "SI": "6.7 s"
+  }
+}
