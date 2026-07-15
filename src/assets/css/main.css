@@ -66,7 +66,7 @@ html.con-cargador { overflow: hidden; }
   width: 212px; height: 212px; border-radius: 50%;
   border: 3px solid color-mix(in srgb, var(--sev-dorado) 22%, transparent);
   border-top-color: var(--sev-dorado);
-  animation: sev-carga-giro 1s linear infinite;
+  animation: sev-carga-giro 1.5s linear infinite;
 }
 /* Disco interior opaco: el escudo es un PNG cuadrado con fondo blanco y sobre un disco
    translúcido sus esquinas se notaban "fuera" del círculo */
@@ -443,7 +443,7 @@ a.redes-inline__enlace:hover, a.redes-inline__enlace:focus-visible {
   /* Excepción funcional única: el spinner orbital del cargador es pequeño, breve (3s)
      y comunica estado de carga — se mantiene su giro también con movimiento reducido */
   .sev-cargador__orbita {
-    animation-duration: 1s !important;
+    animation-duration: 1.5s !important;
     animation-iteration-count: infinite !important;
   }
 }
