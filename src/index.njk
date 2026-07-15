@@ -54,18 +54,37 @@ description: Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — ente r
   </div>
 </section>
 
-{% set destacados = videos | selectattr("destacado") | list %}
+{# D-13 (AJUSTE-02): la franja solo reproduce destacados verticales; los destacados
+   horizontales se promocionan como card de noticia enlazada a /multimedia/. #}
+{% set destacados = videos | selectattr("destacado") | list | groupby("formato") %}
 <section class="section section--oscuro">
   <div class="container">
     <div class="section-heading">
       <p class="eyebrow">Multimedia</p>
       <h2 class="section-title">Videos institucionales</h2>
     </div>
-    <div class="row g-4 justify-content-center">
-      {% for v in destacados %}
+    <div class="row g-4 justify-content-center" data-formato="vertical">
+      {% for v in destacados.vertical %}
         <div class="col-md-6 col-lg-4">{{ video_embed(v) }}</div>
       {% endfor %}
     </div>
+    {% if destacados.horizontal | length %}
+      <div class="row g-4 justify-content-center mt-1">
+        {% for v in destacados.horizontal %}
+          <div class="col-md-6 col-lg-4">
+            <article class="card-noticia">
+              <div class="card-noticia__media"><i class="fa-solid fa-film" aria-hidden="true"></i></div>
+              <div class="card-noticia__body">
+                <p class="card-noticia__date">Video · {{ v.playlist }}</p>
+                <h3 class="card-noticia__title">{{ v.titulo }}</h3>
+                <p class="card-noticia__excerpt">{{ v.descripcion }}</p>
+                <a class="card-noticia__link" href="/multimedia/">Ver en la videoteca <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </article>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
     <div class="text-center mt-4">
       <a class="btn-sev" href="/multimedia/">Ver videoteca</a>
     </div>

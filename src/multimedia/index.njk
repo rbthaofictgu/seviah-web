@@ -5,6 +5,7 @@ description: Videoteca institucional de la Secretaría de Vivienda y Asentamient
 ---
 {% from "video-embed.njk" import video_embed %}
 {% set playlists = ["Institucional", "Programas", "Eventos", "SEVIAH en Acción"] %}
+{% set bloques = videos | groupby("formato") %}
 
 <section class="section section--suave">
   <div class="container">
@@ -22,6 +23,8 @@ description: Videoteca institucional de la Secretaría de Vivienda y Asentamient
   </div>
 </section>
 
+{# D-13 (AJUSTE-02): un contenedor por formato; el filtro opera dentro de cada bloque y un
+   bloque sin resultados se oculta completo. #}
 <section class="section">
   <div class="container">
     <div class="playlist-filtros" role="group" aria-label="Filtrar videos por playlist">
@@ -31,13 +34,38 @@ description: Videoteca institucional de la Secretaría de Vivienda y Asentamient
       {% endfor %}
     </div>
 
-    <div class="row g-4">
-      {% for v in videos %}
-        <div class="col-md-6 col-lg-4" data-playlist="{{ v.playlist }}">
-          <p class="video-card__meta">{{ v.playlist }}</p>
-          {{ video_embed(v, true) }}
+    {% if bloques.horizontal | length %}
+      <div class="bloque-videos" data-formato="horizontal">
+        <div class="section-heading">
+          <p class="eyebrow">Formato horizontal</p>
+          <h2 class="section-title">Videos</h2>
         </div>
-      {% endfor %}
-    </div>
+        <div class="row g-4">
+          {% for v in bloques.horizontal %}
+            <div class="col-md-6 col-lg-4" data-playlist="{{ v.playlist }}">
+              <p class="video-card__meta">{{ v.playlist }}</p>
+              {{ video_embed(v, true) }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if bloques.vertical | length %}
+      <div class="bloque-videos" data-formato="vertical">
+        <div class="section-heading">
+          <p class="eyebrow">Formato vertical</p>
+          <h2 class="section-title">SEVIAH Shorts</h2>
+        </div>
+        <div class="shorts-fila">
+          {% for v in bloques.vertical %}
+            <div class="shorts-fila__item" data-playlist="{{ v.playlist }}">
+              <p class="video-card__meta">{{ v.playlist }}</p>
+              {{ video_embed(v, true) }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
   </div>
 </section>
