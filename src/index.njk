@@ -7,6 +7,7 @@ description: Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — ente r
 {% from "card-destacado.njk" import card_destacado %}
 {% from "card-noticia.njk" import card_noticia %}
 {% from "video-embed.njk" import video_embed %}
+{% from "redes-sociales.njk" import redes_banda %}
 
 {% set slides = [
   { variante: "dorado", eyebrow: "Secretaría de Vivienda y Asentamientos Humanos", titulo: "Construyendo un mejor futuro para Honduras", texto: "Ente rector de la política pública de vivienda y asentamientos humanos de Honduras.", cta_url: "/nosotros/", cta_texto: "Conozca la SEVIAH" },
@@ -90,3 +91,6 @@ description: Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — ente r
     </div>
   </div>
 </section>
+
+{# D-14 (AJUSTE-03): banda de redes antes del footer #}
+{{ redes_banda(redes) }}

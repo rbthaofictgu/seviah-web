@@ -1,0 +1,7 @@
+[
+  { "red": "Facebook",  "nombre": "Seviah Honduras", "url": "https://www.facebook.com/seviah.hn",   "icono": "fa-brands fa-facebook-f" },
+  { "red": "Instagram", "nombre": "seviah.hn",       "url": "https://www.instagram.com/seviah.hn",  "icono": "fa-brands fa-instagram" },
+  { "red": "X",         "nombre": "@seviah_hn",      "url": "https://x.com/seviah_hn",              "icono": "fa-brands fa-x-twitter" },
+  { "red": "TikTok",    "nombre": "@seviah.hn",      "url": "https://www.tiktok.com/@seviah.hn",    "icono": "fa-brands fa-tiktok" },
+  { "red": "YouTube",   "nombre": "@seviahn",        "url": "https://www.youtube.com/@seviahn",     "icono": "fa-brands fa-youtube" }
+]
