@@ -70,3 +70,11 @@
   página). Se retira el "una vez por sesión (sessionStorage)" del texto original de
   AJUSTE-04-D2; D-15 actualizado. Verificado con Playwright: visible en primera visita,
   navegación interna y reentrada (~1.7–2s por página).
+- 2026-07-15 · Endurecimiento de entrega del preloader (reporte "cero loader" del usuario):
+  diagnóstico en su máquina — el eleventy --serve local (:8080) servía la última versión;
+  la copia vieja vivía en la caché del navegador (el dev server no envía Cache-Control).
+  Medidas: (1) cache-busting ?v= en tokens.css/main.css/main.js; (2) renombrado
+  .preloader/#preloader → .sev-cargador/#sevCargador (los filtros cosméticos de los
+  bloqueadores ocultan los selectores genéricos; data-preloader conserva el criterio QA
+  de la enmienda); (3) prefers-reduced-motion ahora lo muestra estático (sin giro) con
+  desvanecido al cargar, como pedía la enmienda, en vez de display:none.

@@ -9,27 +9,29 @@
   // parpadeo en cargas rápidas. El failsafe de 2.5s vive en el head (base.njk):
   // main.js va después de los CDN y un CDN lento no debe retrasar el tope.
   // prefers-reduced-motion: desvanecido inmediato.
-  var preloader = document.getElementById("preloader");
-  if (preloader) {
+  var cargador = document.getElementById("sevCargador");
+  if (cargador) {
     var raiz = document.documentElement;
     var sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var limpiarPreloader = function () {
-      raiz.className = raiz.className.replace(" con-preloader", "").replace(" preloader-vencido", "");
-      if (preloader.parentNode) { preloader.parentNode.removeChild(preloader); }
+    var limpiarCargador = function () {
+      raiz.className = raiz.className.replace(" con-cargador", "").replace(" cargador-vencido", "");
+      if (cargador.parentNode) { cargador.parentNode.removeChild(cargador); }
     };
     if (sinMovimiento) {
-      limpiarPreloader();
+      // Enmienda D2: sin animación (estático por CSS) y desvanecido inmediato al cargar
+      if (document.readyState === "complete") { limpiarCargador(); }
+      else { window.addEventListener("load", limpiarCargador); }
     } else {
-      var ocultarPreloader = function () {
+      var ocultarCargador = function () {
         var espera = Math.max(0, 1200 - window.performance.now());
         setTimeout(function () {
-          preloader.classList.add("preloader--oculto");
-          raiz.className = raiz.className.replace(" con-preloader", "");
-          setTimeout(limpiarPreloader, 450);
+          cargador.classList.add("sev-cargador--oculto");
+          raiz.className = raiz.className.replace(" con-cargador", "");
+          setTimeout(limpiarCargador, 450);
         }, espera);
       };
-      if (document.readyState === "complete") { ocultarPreloader(); }
-      else { window.addEventListener("load", ocultarPreloader); }
+      if (document.readyState === "complete") { ocultarCargador(); }
+      else { window.addEventListener("load", ocultarCargador); }
     }
   }
 

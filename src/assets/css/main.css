@@ -26,51 +26,55 @@ a:hover { color: var(--sev-dorado); }
    Coreografía replicada del loader de la SIT: logo estático centrado sobre un halo
    circular con degradado que gira (1.2s lineal) tras capas desenfocadas, disco interior
    que ahueca el anillo, y salida por fade del overlay. Reescrito desde cero con tokens
-   SEVIAH; una vez por sesión (sessionStorage) y failsafe de 2.5s en main.js. */
-.preloader {
+   SEVIAH; en cada página y cada visita, con failsafe de 2.5s armado en el head.
+   Se llama sev-cargador (no "preloader"): los filtros cosméticos de los bloqueadores
+   de anuncios ocultan los selectores genéricos .preloader/#preloader. */
+.sev-cargador {
   position: fixed; inset: 0; z-index: 2000;
   background: var(--sev-blanco);
   display: flex; align-items: center; justify-content: center;
   opacity: 1; transition: opacity .4s ease;
 }
-.preloader--oculto { opacity: 0; pointer-events: none; }
-html.con-preloader { overflow: hidden; }
+.sev-cargador--oculto { opacity: 0; pointer-events: none; }
+html.con-cargador { overflow: hidden; }
 /* Failsafe 2.5s armado en el head (independiente de los CDN): desvanece por CSS */
-.preloader-vencido .preloader { opacity: 0; pointer-events: none; }
-.preloader__anillo {
+.cargador-vencido .sev-cargador { opacity: 0; pointer-events: none; }
+.sev-cargador__anillo {
   position: absolute; top: 50%; left: 50%;
   width: 168px; height: 168px; border-radius: 50%;
   background: linear-gradient(135deg, var(--sev-dorado), var(--sev-navy));
-  animation: preloader-giro 1.2s linear infinite;
+  animation: sev-carga-giro 1.2s linear infinite;
 }
-.preloader__anillo span {
+.sev-cargador__anillo span {
   position: absolute; inset: 0; border-radius: 50%;
   background: linear-gradient(135deg, var(--sev-dorado), var(--sev-navy));
 }
-.preloader__anillo span:nth-of-type(1) { filter: blur(5px); }
-.preloader__anillo span:nth-of-type(2) { filter: blur(10px); }
-.preloader__anillo span:nth-of-type(3) { filter: blur(25px); }
-.preloader__anillo span:nth-of-type(4) { filter: blur(50px); }
-.preloader__anillo::after {
+.sev-cargador__anillo span:nth-of-type(1) { filter: blur(5px); }
+.sev-cargador__anillo span:nth-of-type(2) { filter: blur(10px); }
+.sev-cargador__anillo span:nth-of-type(3) { filter: blur(25px); }
+.sev-cargador__anillo span:nth-of-type(4) { filter: blur(50px); }
+.sev-cargador__anillo::after {
   content: ""; position: absolute; inset: 12px; border-radius: 50%;
   background: var(--sev-blanco); border: 5px solid var(--sev-blanco); opacity: .92;
 }
-.preloader__escudo { position: relative; width: 96px; height: 96px; }
-.preloader__lema {
+.sev-cargador__escudo { position: relative; width: 96px; height: 96px; }
+.sev-cargador__lema {
   position: absolute; top: calc(50% + 122px); left: 50%; transform: translateX(-50%);
   width: max-content; max-width: 88vw; margin: 0; text-align: center;
   font-family: var(--sev-serif); font-style: italic; font-size: 1.05rem;
   color: var(--sev-navy);
-  animation: preloader-lema .9s ease-out both;
+  animation: sev-carga-lema .9s ease-out both;
 }
-@keyframes preloader-giro {
+@keyframes sev-carga-giro {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
-@keyframes preloader-lema { from { opacity: 0; } to { opacity: 1; } }
-/* Sin animación y desvanecido inmediato si el usuario reduce el movimiento */
+@keyframes sev-carga-lema { from { opacity: 0; } to { opacity: 1; } }
+/* Movimiento reducido (enmienda D2): visible pero SIN animación, desvanecido inmediato
+   al terminar la carga (lo gestiona main.js; el bloque global anula la transición) */
 @media (prefers-reduced-motion: reduce) {
-  .preloader { display: none; }
+  .sev-cargador { transition: none; }
+  .sev-cargador__anillo, .sev-cargador__anillo span, .sev-cargador__lema { animation: none; }
 }
 
 /* ===== Botones institucionales ===== */
