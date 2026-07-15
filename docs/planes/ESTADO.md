@@ -42,3 +42,8 @@
   (header/footer/favicons/og:image; hallazgo: el dorado de fondo de los PNG entregados es
   `#B88A3C`, no el token `#AD8411`); D5 miniaturas i.ytimg.com en cards-enlace de video.
   ADR: **D-15**. Changelog: v05.
+- 2026-07-15 · **AJUSTE-04 mergeado** (PR #3, rebase → `ee2a57c`…`7070533`, 7 commits) y
+  verificado en Pages: home 200 con hero fotográfico (congreso-02 referenciada), preloader
+  presente (grep 5), AOS activo (data-aos 16), logos nuevos servidos (escudo header, lockup
+  dorado footer y favicons 200; logo-gobierno.png y favicon.png viejos → 404), miniatura
+  i.ytimg de v-02 en la home y embed en /multimedia/; lockup/Logo_Gobierno/SISOCS → 0.
