@@ -81,3 +81,4 @@ Cada regla dura de AGENTS.md §4 se sustenta en D-02 (tokens), D-04 (videos), D-
 
 ## Changelog
 - v01 (2026-07-13): paquete inicial completo (5 planes, mapa, orden, ADR, seed, inventario).
+- v03 (AJUSTE-02): D-13 orientación uniforme por contenedor.
