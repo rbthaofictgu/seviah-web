@@ -19,3 +19,8 @@
 - 2026-07-14 · S4-T1 puebla `videos.json` desde `docs/videos-final.json` (no desde el
   inventario docs/04). `videos-final.json` manda: 4 verticales (v-01, v-04, v-05, v-06) →
   se enmienda el criterio #2 de S4-T1 de "2" a "4". 5 IDs reales; v-06/07/08 "Próximamente".
+- 2026-07-14 · Activación total de videos (flujo D-05, commit `b4a108b`): los 6 videos de
+  `videos.json` quedan con `youtube_id` real (4 verticales, 2 horizontales); v-02 y v-06 se
+  retitulan a su versión definitiva y se retiran los marcadores v-07/v-08 que no llegaron al
+  canal. Deja sin efecto el "5 IDs reales; v-06/07/08 Próximamente" de la nota anterior.
+  Desplegado y verificado en Pages: 6 iframes en /multimedia/, 0 "Próximamente".
