@@ -54,7 +54,7 @@ a:hover { color: var(--sev-dorado); }
 /* ===== Header ===== */
 .gov-strip { height: 6px; background: var(--sev-dorado); }
 .brand-bar { background: var(--sev-blanco); border-bottom: 1px solid var(--sev-gris-linea); padding: .55rem 0; }
-.brand-lockup { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+.brand-enlace { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
 .brand-escudo { height: 46px; width: auto; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.08; }
 .brand-name { font-weight: 700; font-size: 1.5rem; color: var(--sev-dorado); letter-spacing: 1px; }
@@ -237,7 +237,8 @@ a:hover { color: var(--sev-dorado); }
 .site-footer a { color: color-mix(in srgb, var(--sev-blanco) 82%, transparent); text-decoration: none; }
 .site-footer a:hover { color: var(--sev-dorado); }
 .footer-title { color: var(--sev-blanco); font-size: 1.05rem; margin-bottom: .75rem; }
-.footer-escudo { height: 56px; width: auto; background: var(--sev-blanco); padding: 4px; border-radius: 6px; }
+/* Lockup dorado autocontenido (AJUSTE-04-D4): placa propia, sin fondo auxiliar */
+.footer-escudo { height: 96px; width: auto; border-radius: 8px; }
 .footer-lema { font-style: italic; color: var(--sev-dorado); margin-top: .8rem; font-family: var(--sev-serif); }
 .footer-list { list-style: none; padding: 0; margin: 0; }
 .footer-list li { margin-bottom: .4rem; }
