@@ -50,6 +50,12 @@ de YouTube presentes en `/multimedia/`.
 4. **Transparencia — OIP.** Designación oficial del **Oficial de Información Pública (OIP)** y
    sus datos de contacto; y la documentación de oficio del Art. 13 (Decreto 170-2006).
 5. **Canal de YouTube.** Enlazar "Suscríbete" cuando el canal exista (ver INSTRUCCIONES-YOUTUBE).
+6. **Imágenes del hero (calidad interina, AJUSTE-04).** Las fotografías de
+   `src/assets/img/hero/` provienen de video 1024×576 reescalado a 1600×900 — calidad
+   aceptable bajo el overlay oscuro. Recomendación registrada: sustituirlas por fotografías
+   originales de alta resolución de la página de Facebook de SEVIAH (material institucional
+   propio) cuando comunicaciones las facilite; el reemplazo es drop-in (mismos nombres de
+   archivo).
 
 ## 4. Cómo trabajar el repo
 

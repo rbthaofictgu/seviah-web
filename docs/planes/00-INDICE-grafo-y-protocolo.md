@@ -83,3 +83,4 @@ Cada regla dura de AGENTS.md §4 se sustenta en D-02 (tokens), D-04 (videos), D-
 - v01 (2026-07-13): paquete inicial completo (5 planes, mapa, orden, ADR, seed, inventario).
 - v03 (AJUSTE-02): D-13 orientación uniforme por contenedor.
 - v04 (AJUSTE-03): D-14 sección de redes sociales.
+- v05 (AJUSTE-04): correcciones revisión 1 — estructura home, preloader, animaciones, logos nuevos, miniaturas.
