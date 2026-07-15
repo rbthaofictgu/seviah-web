@@ -24,3 +24,7 @@
   retitulan a su versión definitiva y se retiran los marcadores v-07/v-08 que no llegaron al
   canal. Deja sin efecto el "5 IDs reales; v-06/07/08 Próximamente" de la nota anterior.
   Desplegado y verificado en Pages: 6 iframes en /multimedia/, 0 "Próximamente".
+- 2026-07-15 · Al aplicar AJUSTE-03 (D-14, rama `ajuste-03/redes-sociales`, PR #2) se detectó
+  que la enmienda AJUSTE-01 nunca se había aplicado (`grep -c "D-12"` en el ADR → 0). Se
+  incorporó primero su punto 1-B (tabla de las 5 redes oficiales en docs/02 §8) y **D-12 se
+  registró retroactivamente** en el ADR dentro del mismo PR, como prerrequisito de D-14.
