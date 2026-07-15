@@ -61,3 +61,7 @@
   videos horizontales (la hqdefault vertical viene pilarizada). Corregido de paso el
   `video_slug` roto de la noticia del incendio (`v-02-incendio-yauyupe` →
   `v-02-agradecimiento-yauyupe`): su boletín nunca mostraba el video.
+- 2026-07-15 · Slide 3: se sirve `hero-vivienda-digna-01.jpg`, derivado nítido de
+  hero-emergencia-06 (máscara de enfoque + microcontraste + grano sutil vía canvas de
+  Chromium). El original queda intacto en la reserva; el reemplazo definitivo sigue siendo
+  la fotografía de alta resolución de comunicaciones (ENTREGA.md §3.6).
