@@ -23,7 +23,7 @@
     } else {
       // Duración fija (indicación del usuario, rev. 6): el cargador se aprecia completo
       // aunque la página cargue rápido. El failsafe del head es DURACION + 2.5s.
-      var DURACION_CARGADOR = 5000;
+      var DURACION_CARGADOR = 10000;
       var ocultarCargador = function () {
         var espera = Math.max(0, DURACION_CARGADOR - window.performance.now());
         setTimeout(function () {

@@ -20,6 +20,17 @@ module.exports = function (eleventyConfig) {
   // Activos estáticos: src/assets -> _site/assets (D-02/D-03)
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  // Dev server sin caché: el navegador guardaba copias viejas (el dev server no envía
+  // Cache-Control) y las revisiones no se veían hasta un hard-reload.
+  eleventyConfig.setServerOptions({
+    middleware: [
+      (req, res, next) => {
+        res.setHeader("Cache-Control", "no-store");
+        next();
+      }
+    ]
+  });
+
   // Filtro utilitario para año/fecha de "última actualización" del footer (docs/02 §9)
   eleventyConfig.addFilter("anio", (value) => String(value).slice(0, 4));
 

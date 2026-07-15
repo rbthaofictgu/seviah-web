@@ -59,7 +59,11 @@ html.con-cargador { overflow: hidden; }
   content: ""; position: absolute; inset: 12px; border-radius: 50%;
   background: var(--sev-blanco); border: 5px solid var(--sev-blanco);
 }
-.sev-cargador__escudo { position: relative; width: 96px; height: 96px; border-radius: 50%; }
+/* Anclado al mismo punto exacto que el anillo (independiente del layout flex) */
+.sev-cargador__escudo {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 96px; height: 96px; border-radius: 50%;
+}
 .sev-cargador__lema {
   position: absolute; top: calc(50% + 122px); left: 50%; transform: translateX(-50%);
   width: max-content; max-width: 88vw; margin: 0; text-align: center;

@@ -83,3 +83,9 @@
   original), failsafe reubicado a duración+2.5s, y corrección visual del escudo: disco
   interior opaco + recorte circular (el PNG cuadrado con fondo blanco se notaba "fuera"
   del círculo sobre el disco translúcido). Assets a ?v=20260715-5.
+- 2026-07-15 · Preloader rev. 7: duración a 10s (indicación del usuario; failsafe 12.5s),
+  escudo anclado por posicionamiento absoluto al mismo punto que el anillo (centrado
+  verificado por getBoundingClientRect: centros idénticos), y dev server con
+  Cache-Control: no-store (la caché heurística del navegador sobre localhost:8080
+  ocultaba cada revisión hasta un hard-reload — causa de los reportes "sigue igual").
+  Assets a ?v=20260715-6.
