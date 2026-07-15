@@ -28,3 +28,8 @@
   que la enmienda AJUSTE-01 nunca se había aplicado (`grep -c "D-12"` en el ADR → 0). Se
   incorporó primero su punto 1-B (tabla de las 5 redes oficiales en docs/02 §8) y **D-12 se
   registró retroactivamente** en el ADR dentro del mismo PR, como prerrequisito de D-14.
+- 2026-07-15 · **AJUSTE-03 mergeado** (PR #2, rebase → `d2bc58d`/`4bbde22`/`adddc6c`) y
+  verificado en Pages: banda "Síguenos en nuestras redes" en Inicio y /contacto/, iconos
+  inline en el footer, botón de suscripción real en /multimedia/. Limpieza posterior
+  (`82e85e0`): se retira `contenido.contacto.facebook`, huérfano desde D-14 — `redes.json`
+  queda como única fuente de verdad de los perfiles sociales. ADR completo D-01…D-14.
