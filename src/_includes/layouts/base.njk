@@ -16,15 +16,15 @@
     {# D-15 (AJUSTE-04-D3): AOS — animaciones sobrias al hacer scroll (CDN permitido, D-03) #}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     {# v= fuerza el refresco de caché de los assets propios en cada revisión #}
-    <link rel="stylesheet" href="/assets/css/tokens.css?v=20260715-4">
-    <link rel="stylesheet" href="/assets/css/main.css?v=20260715-4">
+    <link rel="stylesheet" href="/assets/css/tokens.css?v=20260715-5">
+    <link rel="stylesheet" href="/assets/css/main.css?v=20260715-5">
     {# D-15 (AJUSTE-04-D2, revisión del usuario): el preloader se muestra en cada página
        y en cada visita (paridad con el loader de la SIT). Aquí, antes del primer pintado,
-       solo se bloquea el scroll y se arma el failsafe de 2.5s, que debe disparar aunque
+       solo se bloquea el scroll y se arma el failsafe (duración + 2.5s), que debe disparar aunque
        los scripts de CDN (que preceden a main.js) tarden. Nomenclatura sev-cargador:
        los filtros cosméticos de los bloqueadores ocultan selectores genéricos tipo
        .preloader/#preloader. #}
-    <script>(function(){var d=document.documentElement;d.className+=" con-cargador";setTimeout(function(){d.className=d.className.replace(" con-cargador"," cargador-vencido")},2500)})()</script>
+    <script>(function(){var d=document.documentElement;d.className+=" con-cargador";setTimeout(function(){d.className=d.className.replace(" con-cargador"," cargador-vencido")},7500)})()</script>
   </head>
   <body>
     {# D-15 (AJUSTE-04-D2): preloader institucional propio. Replica la coreografía del
@@ -46,6 +46,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="/assets/js/main.js?v=20260715-4"></script>
+    <script src="/assets/js/main.js?v=20260715-5"></script>
   </body>
 </html>

@@ -78,3 +78,8 @@
   bloqueadores ocultan los selectores genéricos; data-preloader conserva el criterio QA
   de la enmienda); (3) prefers-reduced-motion ahora lo muestra estático (sin giro) con
   desvanecido al cargar, como pedía la enmienda, en vez de display:none.
+- 2026-07-15 · Preloader rev. 6 (indicación del usuario): duración fija de 5s por página
+  (constante DURACION_CARGADOR; deja sin efecto la salida en window load del texto
+  original), failsafe reubicado a duración+2.5s, y corrección visual del escudo: disco
+  interior opaco + recorte circular (el PNG cuadrado con fondo blanco se notaba "fuera"
+  del círculo sobre el disco translúcido). Assets a ?v=20260715-5.

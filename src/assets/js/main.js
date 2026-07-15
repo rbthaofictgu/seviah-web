@@ -4,11 +4,10 @@
   "use strict";
 
   // D-15 (AJUSTE-04-D2, revisión del usuario): preloader en cada página y cada visita
-  // (paridad con el loader de la SIT). Se oculta en window load (fade 400ms)
-  // reteniéndolo al menos una vuelta completa del anillo (1.2s) para que no sea un
-  // parpadeo en cargas rápidas. El failsafe de 2.5s vive en el head (base.njk):
-  // main.js va después de los CDN y un CDN lento no debe retrasar el tope.
-  // prefers-reduced-motion: desvanecido inmediato.
+  // (paridad con el loader de la SIT). Se oculta con fade de 400ms al cumplirse la
+  // duración fija DURACION_CARGADOR (y con la página ya cargada). El failsafe
+  // (duración + 2.5s) vive en el head (base.njk): main.js va después de los CDN y un
+  // CDN lento no debe retrasar el tope. prefers-reduced-motion: desvanecido inmediato.
   var cargador = document.getElementById("sevCargador");
   if (cargador) {
     var raiz = document.documentElement;
@@ -22,8 +21,11 @@
       if (document.readyState === "complete") { limpiarCargador(); }
       else { window.addEventListener("load", limpiarCargador); }
     } else {
+      // Duración fija (indicación del usuario, rev. 6): el cargador se aprecia completo
+      // aunque la página cargue rápido. El failsafe del head es DURACION + 2.5s.
+      var DURACION_CARGADOR = 5000;
       var ocultarCargador = function () {
-        var espera = Math.max(0, 1200 - window.performance.now());
+        var espera = Math.max(0, DURACION_CARGADOR - window.performance.now());
         setTimeout(function () {
           cargador.classList.add("sev-cargador--oculto");
           raiz.className = raiz.className.replace(" con-cargador", "");

@@ -53,11 +53,13 @@ html.con-cargador { overflow: hidden; }
 .sev-cargador__anillo span:nth-of-type(2) { filter: blur(10px); }
 .sev-cargador__anillo span:nth-of-type(3) { filter: blur(25px); }
 .sev-cargador__anillo span:nth-of-type(4) { filter: blur(50px); }
+/* Disco interior opaco: el escudo es un PNG cuadrado con fondo blanco y sobre un disco
+   translúcido sus esquinas se notaban "fuera" del círculo */
 .sev-cargador__anillo::after {
   content: ""; position: absolute; inset: 12px; border-radius: 50%;
-  background: var(--sev-blanco); border: 5px solid var(--sev-blanco); opacity: .92;
+  background: var(--sev-blanco); border: 5px solid var(--sev-blanco);
 }
-.sev-cargador__escudo { position: relative; width: 96px; height: 96px; }
+.sev-cargador__escudo { position: relative; width: 96px; height: 96px; border-radius: 50%; }
 .sev-cargador__lema {
   position: absolute; top: calc(50% + 122px); left: 50%; transform: translateX(-50%);
   width: max-content; max-width: 88vw; margin: 0; text-align: center;
