@@ -33,3 +33,12 @@
   inline en el footer, botón de suscripción real en /multimedia/. Limpieza posterior
   (`82e85e0`): se retira `contenido.contacto.facebook`, huérfano desde D-14 — `redes.json`
   queda como única fuente de verdad de los perfiles sociales. ADR completo D-01…D-14.
+- 2026-07-15 · **AJUSTE-04 aplicado** (rama `ajuste-04/correcciones-revision-1`, un commit
+  por defecto D1…D5): D1 hero con fotografías institucionales propias (congreso-02 y
+  emergencia-01 de `src/assets/img/hero/`, 10 en reserva editorial) y estructura de la home
+  verificada con `scripts/estructura-home.mjs`; D2 preloader propio con la coreografía del
+  loader de la SIT (inspeccionada por curl a /tmp, sin activos de terceros, D-03); D3 AOS +
+  microinteracciones con `prefers-reduced-motion`; D4 logos nuevos desde `docs/logos/`
+  (header/footer/favicons/og:image; hallazgo: el dorado de fondo de los PNG entregados es
+  `#B88A3C`, no el token `#AD8411`); D5 miniaturas i.ytimg.com en cards-enlace de video.
+  ADR: **D-15**. Changelog: v05.
