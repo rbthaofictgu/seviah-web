@@ -21,7 +21,7 @@
     };
     // Duración fija (indicación del usuario): el cargador se aprecia completo aunque
     // la página cargue rápido. El failsafe del head es DURACION + 2.5s.
-    var DURACION_CARGADOR = 5000;
+    var DURACION_CARGADOR = 3000;
     if (sinMovimiento) {
       // Movimiento reducido: misma duración pero estático (el CSS anula el giro) y
       // retirada sin fade. Antes se retiraba al cargar y se percibía como un parpadeo.

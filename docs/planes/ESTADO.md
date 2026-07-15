@@ -104,3 +104,5 @@
   Fix: centrado por calc() en anillo y escudo (independiente de todo transform) y
   keyframes solo con rotate. Duración a 5s (indicación del usuario; failsafe 7.5s).
   Verificado geométrica y visualmente en ambos modos de movimiento. Assets ?v=20260715-8.
+- 2026-07-15 · Preloader rev. 10 (cierre): el usuario confirma que se muestra y queda
+  correcto; duración final 3s (failsafe 5.5s). D-15 refleja 3s.
