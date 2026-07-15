@@ -49,9 +49,15 @@ vía variables propias, no editando su CSS.
   (dorado, hover navy).
 - **"En construcción":** tarjeta crema con borde dorado discontinuo, icono `fa-person-digging`,
   texto: "Sección en construcción — Estamos preparando esta información para usted."
-- **Video embed:** wrapper `aspect-ratio:16/9`, borde-radio 12px, sombra suave; estado
-  "Próximamente" = misma caja con fondo `--sev-oscuro`, icono `fa-clapperboard` dorado y título
-  del video.
+- **Video embed:** wrapper `aspect-ratio:16/9` (horizontal) o `aspect-ratio:9/16` con máx.
+  420px de ancho (vertical), borde-radio 12px, sombra suave; estado "Próximamente" = misma
+  caja con fondo `--sev-oscuro`, icono `fa-clapperboard` dorado y título del video.
+- **Bloques de videos por formato (D-13, AJUSTE-02):** ningún contenedor de videos mezcla
+  orientaciones. /multimedia/ se compone de dos bloques: "Videos" (grid de tarjetas 16:9) y
+  "SEVIAH Shorts" (fila/carrusel de tarjetas 9:16 de altura uniforme, máx. 420px por tarjeta);
+  el filtro por playlist opera dentro de cada bloque y un bloque sin resultados se oculta
+  completo. La franja de videos de Inicio muestra solo destacados verticales; los destacados
+  horizontales se promocionan con una card de noticia enlazada a /multimedia/.
 
 ## 4. Accesibilidad y responsive
 
