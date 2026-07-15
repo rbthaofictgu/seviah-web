@@ -58,6 +58,14 @@ vía variables propias, no editando su CSS.
   el filtro por playlist opera dentro de cada bloque y un bloque sin resultados se oculta
   completo. La franja de videos de Inicio muestra solo destacados verticales; los destacados
   horizontales se promocionan con una card de noticia enlazada a /multimedia/.
+- **Banda "Síguenos en nuestras redes" (D-14, AJUSTE-03):** franja con fondo `--sev-oscuro`,
+  título Georgia blanco y las 5 redes oficiales como insignias circulares: círculo
+  `--sev-dorado` con glifo Font Awesome 6 brands en blanco y nombre/handle debajo en
+  `--sev-sans`; hover/focus: círculo `--sev-navy` con transición suave y leve elevación.
+  Variante **inline**: fila compacta de los mismos iconos para footer y la ficha de Contacto.
+  Insignias siempre en colores institucionales (nunca los colores corporativos de cada red);
+  glifos solo de FA6 Free brands, sin logotipos descargados. Se coloca en Inicio (antes del
+  footer) y en /contacto/.
 
 ## 4. Accesibilidad y responsive
 

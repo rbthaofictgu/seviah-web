@@ -105,9 +105,22 @@ portada, sección "Destacados" en carrusel con flechas, sección "Noticias" con 
 
 ## 8. Contacto y redes
 
-- Facebook: **facebook.com/seviah.hn** (única red confirmada — enlazar).
-- X/Twitter, Instagram, YouTube: **En construcción** (no enlazar perfiles no verificados;
-  el canal de YouTube se enlazará al crearse — ver INSTRUCCIONES-YOUTUBE.md).
+- Redes sociales oficiales (D-12, AJUSTE-01 — únicas permitidas, todas se enlazan):
+
+  | Red | Nombre/handle | URL | Icono FA6 brands |
+  |---|---|---|---|
+  | Facebook | Seviah Honduras | https://www.facebook.com/seviah.hn | `fa-brands fa-facebook-f` |
+  | Instagram | seviah.hn | https://www.instagram.com/seviah.hn | `fa-brands fa-instagram` |
+  | X | @seviah_hn | https://x.com/seviah_hn | `fa-brands fa-x-twitter` |
+  | TikTok | @seviah.hn | https://www.tiktok.com/@seviah.hn | `fa-brands fa-tiktok` |
+  | YouTube | @seviahn | https://www.youtube.com/@seviahn | `fa-brands fa-youtube` |
+
+- Enlace de suscripción al canal (botón "Suscríbete a nuestro canal" en /multimedia/ y en la
+  banda de redes): `https://www.youtube.com/@seviahn?sub_confirmation=1` — el parámetro abre
+  el diálogo de suscripción directamente.
+- Sección "Síguenos en redes" (D-14, AJUSTE-03): parcial `redes-sociales.njk` con variantes
+  **banda** (Inicio antes del footer y /contacto/) e **inline** (footer y ficha de Contacto).
+  Sustituye el estado "En construcción" de redes.
 - Dirección física y teléfonos de SEVIAH: **En construcción** (sin dato público verificado).
 - Formulario de contacto: maquetar deshabilitado con aviso "próximamente" (sitio estático sin
   backend).
@@ -115,6 +128,7 @@ portada, sección "Destacados" en carrusel con flechas, sección "Noticias" con 
 ## 9. Footer obligatorio (patrón gubernamental)
 
 Escudo/marca Gobierno de Honduras 2026-2030 (`docs/Logo_Gobierno.png` como insumo) · lema ·
-enlaces: Portal Único de Transparencia, SIELHO · redes (§8) · nota de derechos
+enlaces: Portal Único de Transparencia, SIELHO · redes (§8, variante **inline** de
+`redes-sociales.njk` con las 5 redes oficiales — D-14) · nota de derechos
 "© 2026 Secretaría de Vivienda y Asentamientos Humanos (SEVIAH). Gobierno de la República de
 Honduras." · fecha de última actualización.
