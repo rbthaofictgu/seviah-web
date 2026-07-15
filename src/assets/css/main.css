@@ -43,8 +43,11 @@ html.con-cargador { overflow: hidden; }
    resplandor quedaba cargado hacia el lado claro y el círculo se percibía descentrado
    respecto al escudo; con tonos de luminosidad cercana el halo queda simétrico y el
    giro se aprecia como un brillo que barre el anillo. */
+/* Centrado por calc(), NUNCA por transform: el translate vivía en los keyframes del
+   giro y con prefers-reduced-motion (animación anulada) el anillo quedaba desplazado
+   media pieza abajo-derecha, separándose del escudo. */
 .sev-cargador__anillo {
-  position: absolute; top: 50%; left: 50%;
+  position: absolute; top: calc(50% - 84px); left: calc(50% - 84px);
   width: 168px; height: 168px; border-radius: 50%;
   background: linear-gradient(135deg, var(--sev-dorado), var(--sev-dorado-texto));
   animation: sev-carga-giro 1.2s linear infinite;
@@ -63,9 +66,9 @@ html.con-cargador { overflow: hidden; }
   content: ""; position: absolute; inset: 12px; border-radius: 50%;
   background: var(--sev-blanco); border: 5px solid var(--sev-blanco);
 }
-/* Anclado al mismo punto exacto que el anillo (independiente del layout flex) */
+/* Anclado al mismo punto exacto que el anillo, también por calc() */
 .sev-cargador__escudo {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  position: absolute; top: calc(50% - 48px); left: calc(50% - 48px);
   width: 96px; height: 96px; border-radius: 50%;
 }
 .sev-cargador__lema {
@@ -76,8 +79,8 @@ html.con-cargador { overflow: hidden; }
   animation: sev-carga-lema .9s ease-out both;
 }
 @keyframes sev-carga-giro {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(360deg); }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 @keyframes sev-carga-lema { from { opacity: 0; } to { opacity: 1; } }
 /* Movimiento reducido (enmienda D2): visible pero SIN animación, desvanecido inmediato

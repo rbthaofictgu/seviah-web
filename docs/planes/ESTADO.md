@@ -97,3 +97,10 @@
   (efectos de animación de Windows desactivados) el loader se retiraba al cargar →
   parpadeo persistente en todas las revisiones → ahora misma duración de 10s estático.
   Firma de revisión en consola (console.info) para diagnóstico. Assets ?v=20260715-7.
+- 2026-07-15 · Preloader rev. 9 — CAUSA RAÍZ del "escudo fuera del círculo" (captura del
+  usuario): el translate(-50%,-50%) que centraba el anillo vivía dentro de los keyframes
+  del giro; con prefers-reduced-motion (efectos de animación de Windows desactivados) la
+  animación no corre y el anillo quedaba desplazado exactamente media pieza (+84,+84).
+  Fix: centrado por calc() en anillo y escudo (independiente de todo transform) y
+  keyframes solo con rotate. Duración a 5s (indicación del usuario; failsafe 7.5s).
+  Verificado geométrica y visualmente en ambos modos de movimiento. Assets ?v=20260715-8.

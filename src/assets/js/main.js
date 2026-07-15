@@ -4,7 +4,7 @@
   "use strict";
 
   // Firma de revisión para diagnóstico rápido (¿qué versión está viendo el navegador?)
-  console.info("SEVIAH · assets rev 20260715-7");
+  console.info("SEVIAH · assets rev 20260715-8");
 
   // D-15 (AJUSTE-04-D2, revisión del usuario): preloader en cada página y cada visita
   // (paridad con el loader de la SIT). Se oculta con fade de 400ms al cumplirse la
@@ -21,7 +21,7 @@
     };
     // Duración fija (indicación del usuario): el cargador se aprecia completo aunque
     // la página cargue rápido. El failsafe del head es DURACION + 2.5s.
-    var DURACION_CARGADOR = 10000;
+    var DURACION_CARGADOR = 5000;
     if (sinMovimiento) {
       // Movimiento reducido: misma duración pero estático (el CSS anula el giro) y
       // retirada sin fade. Antes se retiraba al cargar y se percibía como un parpadeo.
