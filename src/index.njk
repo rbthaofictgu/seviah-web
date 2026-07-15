@@ -91,9 +91,19 @@ description: Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — ente r
     {% if destacados.horizontal | length %}
       <div class="row g-4 justify-content-center mt-1">
         {% for v in destacados.horizontal %}
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <article class="card-noticia">
-              <div class="card-noticia__media"><i class="fa-solid fa-film" aria-hidden="true"></i></div>
+              {# D-15 (AJUSTE-04-D5): la card-enlace consume la miniatura oficial de
+                 YouTube construida desde el youtube_id del contrato (D-05). #}
+              <a class="card-video__media" href="/multimedia/"
+                 aria-label="Ver el video «{{ v.titulo }}» en la videoteca">
+                <img class="card-video__thumb"
+                     src="https://i.ytimg.com/vi/{{ v.youtube_id }}/hqdefault.jpg"
+                     alt="Miniatura del video: {{ v.titulo }}"
+                     loading="lazy" width="480" height="360">
+                <span class="card-video__velo" aria-hidden="true"></span>
+                <span class="card-video__play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+              </a>
               <div class="card-noticia__body">
                 <p class="card-noticia__date">Video · {{ v.playlist }}</p>
                 <h3 class="card-noticia__title">{{ v.titulo }}</h3>

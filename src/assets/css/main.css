@@ -216,6 +216,32 @@ html.con-preloader { overflow: hidden; }
 .card-noticia__link { margin-top: .9rem; font-family: var(--sev-sans); font-weight: 700; text-decoration: none; color: var(--sev-navy); }
 .card-noticia__link:hover { color: var(--sev-dorado); }
 
+/* ===== Card-enlace de video con miniatura (D-15, AJUSTE-04-D5) =====
+   Miniatura i.ytimg.com (hqdefault 4:3: el recorte 16/9 con object-fit elimina las
+   franjas) + velo oscuro sutil + botón de play dorado centrado. */
+.card-video__media { position: relative; display: block; aspect-ratio: 16/9; overflow: hidden; }
+.card-video__thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card-video__velo {
+  position: absolute; inset: 0;
+  background: color-mix(in srgb, var(--sev-oscuro) 30%, transparent);
+  transition: background .2s ease;
+}
+.card-video__play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 58px; height: 58px; border-radius: 50%;
+  background: var(--sev-dorado); color: var(--sev-blanco);
+  display: grid; place-items: center; font-size: 1.2rem;
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--sev-oscuro) 35%, transparent);
+  transition: background .2s ease, transform .2s ease;
+}
+.card-video__play i { margin-left: 3px; /* centrado óptico del triángulo */ }
+.card-noticia:hover .card-video__play {
+  background: var(--sev-navy); transform: translate(-50%, -50%) scale(1.08);
+}
+.card-noticia:hover .card-video__velo {
+  background: color-mix(in srgb, var(--sev-oscuro) 14%, transparent);
+}
+
 /* ===== En construcción (D-06) ===== */
 .en-construccion {
   background: var(--sev-crema); border: 2px dashed var(--sev-dorado); border-radius: 12px;
