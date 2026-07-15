@@ -1,10 +1,26 @@
 {#
   card-noticia.njk — Card de noticia (docs/03 §3). Recibe un objeto de noticias.json
-  { slug, titulo, fecha, resumen }. El enlace apunta al ancla en /noticias/.
+  { slug, titulo, fecha, resumen, imagen?, imagen_alt?, video_slug? } y, opcionalmente,
+  el video asociado (objeto de videos.json) resuelto por el llamador.
+  Media (AJUSTE-04, revisión 2): imagen propia si la noticia la define; si no, la
+  miniatura oficial de YouTube del video asociado (D-05/D-15); icono como último recurso.
+  El enlace apunta al ancla en /noticias/.
 #}
-{% macro card_noticia(noticia) %}
+{% macro card_noticia(noticia, video=null) %}
 <article class="card-noticia">
-  <div class="card-noticia__media"><i class="fa-regular fa-newspaper" aria-hidden="true"></i></div>
+  <div class="card-noticia__media">
+    {% if noticia.imagen %}
+      <img class="card-noticia__img" src="{{ noticia.imagen }}" alt="{{ noticia.imagen_alt }}"
+           loading="lazy" width="480" height="270">
+    {% elif video and video.youtube_id and video.formato == "horizontal" %}
+      {# solo formato horizontal: la miniatura hqdefault de un video vertical viene
+         pilarizada y el recorte 16:9 mostraría las franjas #}
+      <img class="card-noticia__img" src="https://i.ytimg.com/vi/{{ video.youtube_id }}/hqdefault.jpg"
+           alt="Miniatura del video: {{ video.titulo }}" loading="lazy" width="480" height="360">
+    {% else %}
+      <i class="fa-regular fa-newspaper" aria-hidden="true"></i>
+    {% endif %}
+  </div>
   <div class="card-noticia__body">
     <p class="card-noticia__date">{{ noticia.fecha }}</p>
     <h3 class="card-noticia__title">{{ noticia.titulo }}</h3>

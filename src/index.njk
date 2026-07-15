@@ -25,7 +25,8 @@ description: Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — ente r
     titulo: "Atención cercana y responsable",
     texto: "Acompañamos a las familias afectadas por emergencias con soluciones habitacionales dignas.",
     cta_url: "/multimedia/", cta_texto: "SEVIAH en Acción" },
-  { variante: "dorado", medallon: "/assets/img/favicon-512.png",
+  { imagen: "/assets/img/hero/hero-emergencia-06.jpg", variante: "dorado",
+    alt: "Madre e hijo de la familia de Yauyupe que recibirá una vivienda donada, sonriendo frente a la vegetación de su comunidad",
     eyebrow: "Pilares institucionales",
     titulo: "Vivienda digna para todos",
     texto: "El Bono de Vivienda de Interés Social y el mejoramiento de vivienda, al servicio de las familias hondureñas.",
@@ -64,7 +65,7 @@ description: Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — ente r
     <div class="row g-4">
       {% for n in noticias %}
         {% if loop.index <= 3 %}
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">{{ card_noticia(n) }}</div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">{{ card_noticia(n, videos | buscarPorSlug(n.video_slug)) }}</div>
         {% endif %}
       {% endfor %}
     </div>

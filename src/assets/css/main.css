@@ -207,10 +207,12 @@ html.con-preloader { overflow: hidden; }
   box-shadow: 0 12px 28px color-mix(in srgb, var(--sev-oscuro) 16%, transparent);
 }
 .card-noticia__media {
-  aspect-ratio: 16/9; display: grid; place-items: center;
+  position: relative; aspect-ratio: 16/9; display: grid; place-items: center;
   background: linear-gradient(135deg, var(--sev-navy), var(--sev-oscuro));
   color: color-mix(in srgb, var(--sev-blanco) 85%, transparent); font-size: 2rem;
 }
+/* Imagen temática de la noticia (AJUSTE-04, revisión 2) */
+.card-noticia__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .card-noticia__body { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
 .card-noticia__date { font-family: var(--sev-sans); font-size: .76rem; text-transform: uppercase; letter-spacing: 1px; color: var(--sev-dorado-texto); font-weight: 700; }
 .card-noticia__title { color: var(--sev-navy); font-size: 1.15rem; margin: .35rem 0 .5rem; }

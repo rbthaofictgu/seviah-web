@@ -17,7 +17,7 @@ description: Noticias institucionales de la Secretaría de Vivienda y Asentamien
   <div class="container">
     <div class="row g-4">
       {% for n in noticias %}
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ (loop.index0 % 3) * 100 }}">{{ card_noticia(n) }}</div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ (loop.index0 % 3) * 100 }}">{{ card_noticia(n, videos | buscarPorSlug(n.video_slug)) }}</div>
       {% endfor %}
     </div>
   </div>

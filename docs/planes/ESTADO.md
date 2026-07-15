@@ -52,3 +52,12 @@
   (observado 7.2s con aos.js +6s). Ahora la marca de sesión y el failsafe viven en el
   head (desvanecido por CSS con `.preloader-vencido`) y se añade retención mínima de
   1.2s (una vuelta del anillo) para que no sea un parpadeo en cargas rápidas.
+- 2026-07-15 · Revisión 2 de AJUSTE-04 (indicación del usuario: imágenes reales, no
+  ilustración): slide 3 del hero usa `hero-emergencia-06.jpg` (familia beneficiaria de
+  Yauyupe); las 6 cards de noticias llevan imagen temática real — miniatura de YouTube
+  para las noticias con video horizontal y recortes de la banda central de los fotogramas
+  maxres de los videos verticales del canal propio (v-01/v-04/v-05/v-06) en
+  `src/assets/img/noticias/`. El macro card-noticia solo usa miniatura automática con
+  videos horizontales (la hqdefault vertical viene pilarizada). Corregido de paso el
+  `video_slug` roto de la noticia del incendio (`v-02-incendio-yauyupe` →
+  `v-02-agradecimiento-yauyupe`): su boletín nunca mostraba el video.
