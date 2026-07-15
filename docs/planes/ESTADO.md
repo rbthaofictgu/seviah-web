@@ -89,3 +89,11 @@
   Cache-Control: no-store (la caché heurística del navegador sobre localhost:8080
   ocultaba cada revisión hasta un hard-reload — causa de los reportes "sigue igual").
   Assets a ?v=20260715-6.
+- 2026-07-15 · Preloader rev. 8 (reevaluación de fondo tras "sigue igual" del usuario):
+  dos causas reales inmunes a caché — (1) el halo con degradado dorado→navy era
+  asimétrico en luminosidad y el círculo se PERCIBÍA descentrado aunque la geometría
+  fuera exacta → degradado dorado→dorado-texto (misma familia tonal, halo simétrico,
+  giro visible como brillo que barre el anillo); (2) con prefers-reduced-motion
+  (efectos de animación de Windows desactivados) el loader se retiraba al cargar →
+  parpadeo persistente en todas las revisiones → ahora misma duración de 10s estático.
+  Firma de revisión en consola (console.info) para diagnóstico. Assets ?v=20260715-7.

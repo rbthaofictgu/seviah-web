@@ -3,6 +3,9 @@
 (function () {
   "use strict";
 
+  // Firma de revisión para diagnóstico rápido (¿qué versión está viendo el navegador?)
+  console.info("SEVIAH · assets rev 20260715-7");
+
   // D-15 (AJUSTE-04-D2, revisión del usuario): preloader en cada página y cada visita
   // (paridad con el loader de la SIT). Se oculta con fade de 400ms al cumplirse la
   // duración fija DURACION_CARGADOR (y con la página ya cargada). El failsafe
@@ -16,14 +19,18 @@
       raiz.className = raiz.className.replace(" con-cargador", "").replace(" cargador-vencido", "");
       if (cargador.parentNode) { cargador.parentNode.removeChild(cargador); }
     };
+    // Duración fija (indicación del usuario): el cargador se aprecia completo aunque
+    // la página cargue rápido. El failsafe del head es DURACION + 2.5s.
+    var DURACION_CARGADOR = 10000;
     if (sinMovimiento) {
-      // Enmienda D2: sin animación (estático por CSS) y desvanecido inmediato al cargar
-      if (document.readyState === "complete") { limpiarCargador(); }
-      else { window.addEventListener("load", limpiarCargador); }
+      // Movimiento reducido: misma duración pero estático (el CSS anula el giro) y
+      // retirada sin fade. Antes se retiraba al cargar y se percibía como un parpadeo.
+      var quitarEstatico = function () {
+        setTimeout(limpiarCargador, Math.max(0, DURACION_CARGADOR - window.performance.now()));
+      };
+      if (document.readyState === "complete") { quitarEstatico(); }
+      else { window.addEventListener("load", quitarEstatico); }
     } else {
-      // Duración fija (indicación del usuario, rev. 6): el cargador se aprecia completo
-      // aunque la página cargue rápido. El failsafe del head es DURACION + 2.5s.
-      var DURACION_CARGADOR = 10000;
       var ocultarCargador = function () {
         var espera = Math.max(0, DURACION_CARGADOR - window.performance.now());
         setTimeout(function () {

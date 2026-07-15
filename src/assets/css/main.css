@@ -39,15 +39,19 @@ a:hover { color: var(--sev-dorado); }
 html.con-cargador { overflow: hidden; }
 /* Failsafe 2.5s armado en el head (independiente de los CDN): desvanece por CSS */
 .cargador-vencido .sev-cargador { opacity: 0; pointer-events: none; }
+/* Degradado en la misma familia tonal (dorado→dorado oscuro): con dorado→navy el
+   resplandor quedaba cargado hacia el lado claro y el círculo se percibía descentrado
+   respecto al escudo; con tonos de luminosidad cercana el halo queda simétrico y el
+   giro se aprecia como un brillo que barre el anillo. */
 .sev-cargador__anillo {
   position: absolute; top: 50%; left: 50%;
   width: 168px; height: 168px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--sev-dorado), var(--sev-navy));
+  background: linear-gradient(135deg, var(--sev-dorado), var(--sev-dorado-texto));
   animation: sev-carga-giro 1.2s linear infinite;
 }
 .sev-cargador__anillo span {
   position: absolute; inset: 0; border-radius: 50%;
-  background: linear-gradient(135deg, var(--sev-dorado), var(--sev-navy));
+  background: linear-gradient(135deg, var(--sev-dorado), var(--sev-dorado-texto));
 }
 .sev-cargador__anillo span:nth-of-type(1) { filter: blur(5px); }
 .sev-cargador__anillo span:nth-of-type(2) { filter: blur(10px); }
