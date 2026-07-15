@@ -6,17 +6,17 @@
     "playlist": "Institucional",
     "fecha": "2026-07",
     "formato": "vertical",
-    "youtube_id": "aNnWWmHIFck",
+    "youtube_id": "vs7RpeR4lAo",
     "destacado": true
   },
   {
-    "slug": "v-02-incendio-yauyupe",
-    "titulo": "Incendio en Yauyupe, El Paraíso — familia recibirá vivienda donada",
-    "descripcion": "SEVIAH atiende a familia afectada por un incendio en Yauyupe, departamento de El Paraíso, a la que se le donará una vivienda como parte de la atención a emergencias del sector.",
+    "slug": "v-02-agradecimiento-yauyupe",
+    "titulo": "Agradecimiento del alcalde de Yauyupe, El Paraíso",
+    "descripcion": "El alcalde de Yauyupe, departamento de El Paraíso, agradece a SEVIAH la atención brindada a la familia afectada por un incendio, a la que se le donará una vivienda.",
     "playlist": "SEVIAH en Acción",
     "fecha": "2026-07",
     "formato": "horizontal",
-    "youtube_id": "hEfnJHZazQs",
+    "youtube_id": "3WLJz0PzMQI",
     "destacado": true
   },
   {
@@ -26,7 +26,7 @@
     "playlist": "Eventos",
     "fecha": "2026-07",
     "formato": "horizontal",
-    "youtube_id": "0j6D0WiDIfQ",
+    "youtube_id": "TytndOrlGOw",
     "destacado": false
   },
   {
@@ -36,7 +36,7 @@
     "playlist": "Programas",
     "fecha": "2026-07",
     "formato": "vertical",
-    "youtube_id": "DvwxLSemoGM",
+    "youtube_id": "dbSCi_fu-HI",
     "destacado": true
   },
   {
@@ -46,37 +46,17 @@
     "playlist": "SEVIAH en Acción",
     "fecha": "2026-07",
     "formato": "vertical",
-    "youtube_id": "9F-tIfl2b8k",
+    "youtube_id": "jRxVGC5UUME",
     "destacado": false
   },
   {
-    "slug": "v-06-reunion-directiva",
-    "titulo": "Reunión de trabajo con equipo directivo",
-    "descripcion": "Sesión de trabajo del equipo de SEVIAH. (Título y descripción por confirmar.)",
+    "slug": "v-06-busqueda-postulantes",
+    "titulo": "Búsqueda de postulantes",
+    "descripcion": "El equipo de SEVIAH recorre el territorio identificando y atendiendo a familias postulantes a los programas de vivienda, llevando la atención cercana y responsable a las comunidades.",
     "playlist": "SEVIAH en Acción",
     "fecha": "2026-07",
     "formato": "vertical",
-    "youtube_id": "",
-    "destacado": false
-  },
-  {
-    "slug": "v-07-sesion-planificacion",
-    "titulo": "Sesión ejecutiva de planificación",
-    "descripcion": "Sesión ejecutiva de planificación institucional de SEVIAH. (Título y descripción por confirmar.)",
-    "playlist": "SEVIAH en Acción",
-    "fecha": "2026-07",
-    "formato": "horizontal",
-    "youtube_id": "",
-    "destacado": false
-  },
-  {
-    "slug": "v-08-seviah-en-accion",
-    "titulo": "SEVIAH en Acción — trabajo en territorio",
-    "descripcion": "Recorrido del equipo de SEVIAH en territorio, atendiendo de cerca a las familias hondureñas. (Descripción por confirmar.)",
-    "playlist": "SEVIAH en Acción",
-    "fecha": "2026-07",
-    "formato": "horizontal",
-    "youtube_id": "",
+    "youtube_id": "38KichpS5Kc",
     "destacado": false
   }
 ]
