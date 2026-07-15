@@ -29,6 +29,16 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    // D-15 (AJUSTE-04-D3): AOS sobrio; deshabilitado si el usuario reduce el movimiento.
+    if (window.AOS) {
+      window.AOS.init({
+        duration: 500,
+        easing: "ease-out",
+        once: true,
+        disable: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      });
+    }
+
     if (typeof window.Swiper === "function") {
       // Hero full-width (docs/03 §3)
       document.querySelectorAll(".hero-swiper").forEach(function (el) {

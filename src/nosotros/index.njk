@@ -40,7 +40,7 @@ description: Quiénes somos — misión, visión, valores y base legal de la Sec
     </div>
     <div class="row g-4">
       {% for p in contenido.pilares %}
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
           <div class="pilar">
             <div class="pilar__icon"><i class="{{ p.icono }}" aria-hidden="true"></i></div>
             <div>

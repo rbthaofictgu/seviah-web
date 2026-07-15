@@ -7,10 +7,10 @@
 {% macro redes_banda(redes) %}
 <section class="redes-banda">
   <div class="container">
-    <h2 class="redes-banda__title">Síguenos en nuestras redes</h2>
+    <h2 class="redes-banda__title" data-aos="fade-up">Síguenos en nuestras redes</h2>
     <ul class="redes-banda__lista">
       {% for red in redes %}
-        <li>
+        <li data-aos="fade-up" data-aos-delay="{{ loop.index0 * 75 }}">
           <a class="redes-banda__enlace" href="{{ red.url }}" aria-label="SEVIAH en {{ red.red }}: {{ red.nombre }}" rel="noopener" target="_blank">
             <span class="redes-banda__circulo"><i class="{{ red.icono }}" aria-hidden="true"></i></span>
             <span class="redes-banda__nombre">{{ red.nombre }}</span>
