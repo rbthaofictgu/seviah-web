@@ -58,8 +58,16 @@ html.con-cargador { overflow: hidden; }
 }
 .sev-cargador__anillo span:nth-of-type(1) { filter: blur(5px); }
 .sev-cargador__anillo span:nth-of-type(2) { filter: blur(10px); }
-.sev-cargador__anillo span:nth-of-type(3) { filter: blur(25px); }
-.sev-cargador__anillo span:nth-of-type(4) { filter: blur(50px); }
+.sev-cargador__anillo span:nth-of-type(3) { filter: blur(25px); animation: sev-carga-respiro 2.4s ease-in-out infinite; }
+.sev-cargador__anillo span:nth-of-type(4) { filter: blur(50px); animation: sev-carga-respiro 2.4s ease-in-out infinite .6s; }
+/* Spinner orbital: aro fino con arco dorado girando alrededor del halo */
+.sev-cargador__orbita {
+  position: absolute; top: calc(50% - 106px); left: calc(50% - 106px);
+  width: 212px; height: 212px; border-radius: 50%;
+  border: 3px solid color-mix(in srgb, var(--sev-dorado) 22%, transparent);
+  border-top-color: var(--sev-dorado);
+  animation: sev-carga-giro 1s linear infinite;
+}
 /* Disco interior opaco: el escudo es un PNG cuadrado con fondo blanco y sobre un disco
    translúcido sus esquinas se notaban "fuera" del círculo */
 .sev-cargador__anillo::after {
@@ -83,8 +91,10 @@ html.con-cargador { overflow: hidden; }
   to   { transform: rotate(360deg); }
 }
 @keyframes sev-carga-lema { from { opacity: 0; } to { opacity: 1; } }
-/* Movimiento reducido (enmienda D2): visible pero SIN animación, desvanecido inmediato
-   al terminar la carga (lo gestiona main.js; el bloque global anula la transición) */
+@keyframes sev-carga-respiro { 0%, 100% { opacity: 1; } 50% { opacity: .65; } }
+/* Movimiento reducido (enmienda D2): presentación estática (sin giro del anillo ni
+   respiro del halo). El spinner orbital queda EXENTO (ver excepción al final del
+   archivo): es pequeño, breve y funcional — indica que la página está cargando. */
 @media (prefers-reduced-motion: reduce) {
   .sev-cargador { transition: none; }
   .sev-cargador__anillo, .sev-cargador__anillo span, .sev-cargador__lema { animation: none; }
@@ -429,5 +439,11 @@ a.redes-inline__enlace:hover, a.redes-inline__enlace:focus-visible {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
+  }
+  /* Excepción funcional única: el spinner orbital del cargador es pequeño, breve (3s)
+     y comunica estado de carga — se mantiene su giro también con movimiento reducido */
+  .sev-cargador__orbita {
+    animation-duration: 1s !important;
+    animation-iteration-count: infinite !important;
   }
 }

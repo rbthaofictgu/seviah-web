@@ -106,3 +106,8 @@
   Verificado geométrica y visualmente en ambos modos de movimiento. Assets ?v=20260715-8.
 - 2026-07-15 · Preloader rev. 10 (cierre): el usuario confirma que se muestra y queda
   correcto; duración final 3s (failsafe 5.5s). D-15 refleja 3s.
+- 2026-07-15 · Preloader rev. 11 (mejora estética pedida por el usuario): spinner orbital
+  fino (aro con arco dorado, 1s/vuelta) alrededor del halo + respiro suave del resplandor
+  en modo normal. El spinner queda exento de prefers-reduced-motion como única excepción
+  funcional (indicador de carga pequeño y breve; D-15 actualizado) — sin la excepción, el
+  usuario (Windows sin efectos de animación) no vería girar nada. Assets ?v=20260715-9.
