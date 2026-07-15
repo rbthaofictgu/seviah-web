@@ -3,11 +3,12 @@
 (function () {
   "use strict";
 
-  // D-15 (AJUSTE-04-D2): preloader institucional — una vez por sesión, se oculta en
-  // window load (fade 400ms) reteniéndolo al menos una vuelta completa del anillo
-  // (1.2s) para que no sea un parpadeo en cargas rápidas. La marca de sesión y el
-  // failsafe de 2.5s viven en el head (base.njk): main.js va después de los CDN y un
-  // CDN lento no debe retrasar el tope. prefers-reduced-motion: desvanecido inmediato.
+  // D-15 (AJUSTE-04-D2, revisión del usuario): preloader en cada página y cada visita
+  // (paridad con el loader de la SIT). Se oculta en window load (fade 400ms)
+  // reteniéndolo al menos una vuelta completa del anillo (1.2s) para que no sea un
+  // parpadeo en cargas rápidas. El failsafe de 2.5s vive en el head (base.njk):
+  // main.js va después de los CDN y un CDN lento no debe retrasar el tope.
+  // prefers-reduced-motion: desvanecido inmediato.
   var preloader = document.getElementById("preloader");
   if (preloader) {
     var raiz = document.documentElement;
@@ -16,7 +17,7 @@
       raiz.className = raiz.className.replace(" con-preloader", "").replace(" preloader-vencido", "");
       if (preloader.parentNode) { preloader.parentNode.removeChild(preloader); }
     };
-    if (raiz.className.indexOf("sin-preloader") !== -1 || sinMovimiento) {
+    if (sinMovimiento) {
       limpiarPreloader();
     } else {
       var ocultarPreloader = function () {

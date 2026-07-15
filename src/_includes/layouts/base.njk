@@ -17,10 +17,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="/assets/css/tokens.css">
     <link rel="stylesheet" href="/assets/css/main.css">
-    {# D-15 (AJUSTE-04-D2): antes del primer pintado — si el preloader ya se mostró en la
-       sesión se omite; si no, se marca la sesión y se arma aquí el failsafe de 2.5s, que
-       debe disparar aunque los scripts de CDN (que preceden a main.js) tarden. #}
-    <script>(function(){var d=document.documentElement;try{if(sessionStorage.getItem("seviahPreloader")){d.className+=" sin-preloader";return}sessionStorage.setItem("seviahPreloader","1")}catch(e){}d.className+=" con-preloader";setTimeout(function(){d.className=d.className.replace(" con-preloader"," preloader-vencido")},2500)})()</script>
+    {# D-15 (AJUSTE-04-D2, revisión del usuario): el preloader se muestra en cada página
+       y en cada visita (paridad con el loader de la SIT). Aquí, antes del primer pintado,
+       solo se bloquea el scroll y se arma el failsafe de 2.5s, que debe disparar aunque
+       los scripts de CDN (que preceden a main.js) tarden. #}
+    <script>(function(){var d=document.documentElement;d.className+=" con-preloader";setTimeout(function(){d.className=d.className.replace(" con-preloader"," preloader-vencido")},2500)})()</script>
   </head>
   <body>
     {# D-15 (AJUSTE-04-D2): preloader institucional propio. Replica la coreografía del

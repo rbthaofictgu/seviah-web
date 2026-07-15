@@ -65,3 +65,8 @@
   hero-emergencia-06 (máscara de enfoque + microcontraste + grano sutil vía canvas de
   Chromium). El original queda intacto en la reserva; el reemplazo definitivo sigue siendo
   la fotografía de alta resolución de comunicaciones (ENTREGA.md §3.6).
+- 2026-07-15 · Preloader en cada página y cada visita (indicación del usuario: paridad con
+  el comportamiento real del loader de la SIT, cuya bandera doneLoad es por carga de
+  página). Se retira el "una vez por sesión (sessionStorage)" del texto original de
+  AJUSTE-04-D2; D-15 actualizado. Verificado con Playwright: visible en primera visita,
+  navegación interna y reentrada (~1.7–2s por página).

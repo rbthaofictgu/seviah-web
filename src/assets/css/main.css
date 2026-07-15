@@ -34,7 +34,6 @@ a:hover { color: var(--sev-dorado); }
   opacity: 1; transition: opacity .4s ease;
 }
 .preloader--oculto { opacity: 0; pointer-events: none; }
-.sin-preloader .preloader { display: none; }
 html.con-preloader { overflow: hidden; }
 /* Failsafe 2.5s armado en el head (independiente de los CDN): desvanece por CSS */
 .preloader-vencido .preloader { opacity: 0; pointer-events: none; }
