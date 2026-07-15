@@ -36,6 +36,8 @@ a:hover { color: var(--sev-dorado); }
 .preloader--oculto { opacity: 0; pointer-events: none; }
 .sin-preloader .preloader { display: none; }
 html.con-preloader { overflow: hidden; }
+/* Failsafe 2.5s armado en el head (independiente de los CDN): desvanece por CSS */
+.preloader-vencido .preloader { opacity: 0; pointer-events: none; }
 .preloader__anillo {
   position: absolute; top: 50%; left: 50%;
   width: 168px; height: 168px; border-radius: 50%;

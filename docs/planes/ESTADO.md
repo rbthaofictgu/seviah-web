@@ -47,3 +47,8 @@
   presente (grep 5), AOS activo (data-aos 16), logos nuevos servidos (escudo header, lockup
   dorado footer y favicons 200; logo-gobierno.png y favicon.png viejos → 404), miniatura
   i.ytimg de v-02 en la home y embed en /multimedia/; lockup/Logo_Gobierno/SISOCS → 0.
+- 2026-07-15 · Endurecimiento post-merge del preloader (revisión en vivo de AJUSTE-04-D2):
+  el failsafe de 2.5s se armaba en main.js (tras los CDN) — un CDN lento lo retrasaba
+  (observado 7.2s con aos.js +6s). Ahora la marca de sesión y el failsafe viven en el
+  head (desvanecido por CSS con `.preloader-vencido`) y se añade retención mínima de
+  1.2s (una vuelta del anillo) para que no sea un parpadeo en cargas rápidas.

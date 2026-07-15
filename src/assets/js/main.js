@@ -3,28 +3,32 @@
 (function () {
   "use strict";
 
-  // D-15 (AJUSTE-04-D2): preloader institucional — se muestra una sola vez por sesión,
-  // se oculta en window load (fade 400ms) con failsafe a los 2.5s y respeta
-  // prefers-reduced-motion (desvanecido inmediato, sin animación).
+  // D-15 (AJUSTE-04-D2): preloader institucional — una vez por sesión, se oculta en
+  // window load (fade 400ms) reteniéndolo al menos una vuelta completa del anillo
+  // (1.2s) para que no sea un parpadeo en cargas rápidas. La marca de sesión y el
+  // failsafe de 2.5s viven en el head (base.njk): main.js va después de los CDN y un
+  // CDN lento no debe retrasar el tope. prefers-reduced-motion: desvanecido inmediato.
   var preloader = document.getElementById("preloader");
   if (preloader) {
     var raiz = document.documentElement;
     var sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (raiz.className.indexOf("sin-preloader") !== -1 || sinMovimiento) {
+    var limpiarPreloader = function () {
+      raiz.className = raiz.className.replace(" con-preloader", "").replace(" preloader-vencido", "");
       if (preloader.parentNode) { preloader.parentNode.removeChild(preloader); }
+    };
+    if (raiz.className.indexOf("sin-preloader") !== -1 || sinMovimiento) {
+      limpiarPreloader();
     } else {
-      raiz.classList.add("con-preloader");
       var ocultarPreloader = function () {
-        if (!preloader.parentNode) { return; }
-        preloader.classList.add("preloader--oculto");
-        raiz.classList.remove("con-preloader");
+        var espera = Math.max(0, 1200 - window.performance.now());
         setTimeout(function () {
-          if (preloader.parentNode) { preloader.parentNode.removeChild(preloader); }
-        }, 450);
+          preloader.classList.add("preloader--oculto");
+          raiz.className = raiz.className.replace(" con-preloader", "");
+          setTimeout(limpiarPreloader, 450);
+        }, espera);
       };
-      try { sessionStorage.setItem("seviahPreloader", "1"); } catch (e) { /* sin sesión */ }
-      window.addEventListener("load", ocultarPreloader);
-      setTimeout(ocultarPreloader, 2500); // failsafe
+      if (document.readyState === "complete") { ocultarPreloader(); }
+      else { window.addEventListener("load", ocultarPreloader); }
     }
   }
 
