@@ -1,6 +1,9 @@
 {#
-  hero.njk — Hero Swiper full-width (docs/03 §3).
-  slides: [{ variante: 'dorado'|'navy'|'verde', eyebrow, titulo, texto, cta_url, cta_texto }]
+  hero.njk — Hero Swiper full-width (docs/03 §3; AJUSTE-04-D1).
+  slides: [{ imagen, alt, medallon, variante: 'dorado'|'navy'|'verde', eyebrow, titulo,
+             texto, cta_url, cta_texto }]
+  - imagen: fotografía de portada (overlay --sev-oscuro 60%→0); eager solo la primera.
+  - medallon: composición sin foto — escudo como medallón junto al titular.
   conH1: si true, el primer slide usa <h1> (encabezado principal de la página).
 #}
 {% macro hero(slides, conH1=false) %}
@@ -8,19 +11,29 @@
   <div class="swiper hero-swiper">
     <div class="swiper-wrapper">
       {% for s in slides %}
-      <div class="swiper-slide hero-slide hero-slide--{{ s.variante or 'navy' }}">
-        <div class="hero-slide__bg"></div>
+      <div class="swiper-slide hero-slide hero-slide--{{ s.variante or 'navy' }}{{ " hero-slide--foto" if s.imagen }}">
+        <div class="hero-slide__bg">
+          {% if s.imagen %}
+            <img class="hero-slide__img" src="{{ s.imagen }}" alt="{{ s.alt }}"
+                 {% if loop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+          {% endif %}
+        </div>
         <div class="hero-slide__overlay"></div>
         <div class="container">
-          <div class="hero-slide__content">
-            {% if s.eyebrow %}<p class="hero-eyebrow eyebrow">{{ s.eyebrow }}</p>{% endif %}
-            {% if conH1 and loop.first %}
-              <h1 class="hero-title">{{ s.titulo }}</h1>
-            {% else %}
-              <p class="hero-title">{{ s.titulo }}</p>
+          <div class="hero-slide__fila">
+            <div class="hero-slide__content">
+              {% if s.eyebrow %}<p class="hero-eyebrow eyebrow">{{ s.eyebrow }}</p>{% endif %}
+              {% if conH1 and loop.first %}
+                <h1 class="hero-title">{{ s.titulo }}</h1>
+              {% else %}
+                <p class="hero-title">{{ s.titulo }}</p>
+              {% endif %}
+              {% if s.texto %}<p class="hero-text">{{ s.texto }}</p>{% endif %}
+              {% if s.cta_url %}<a class="btn-sev" href="{{ s.cta_url }}">{{ s.cta_texto or 'Ver más' }}</a>{% endif %}
+            </div>
+            {% if s.medallon %}
+              <img class="hero-slide__medallon" src="{{ s.medallon }}" alt="" loading="lazy">
             {% endif %}
-            {% if s.texto %}<p class="hero-text">{{ s.texto }}</p>{% endif %}
-            {% if s.cta_url %}<a class="btn-sev" href="{{ s.cta_url }}">{{ s.cta_texto or 'Ver más' }}</a>{% endif %}
           </div>
         </div>
       </div>

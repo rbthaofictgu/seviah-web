@@ -9,10 +9,27 @@ description: Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — ente r
 {% from "video-embed.njk" import video_embed %}
 {% from "redes-sociales.njk" import redes_banda %}
 
+{# D-15 (AJUSTE-04-D1): carrusel con fotografías institucionales propias (fotogramas de
+   videos oficiales, adenda AJUSTE-04). Las 10 imágenes no usadas de src/assets/img/hero/
+   quedan como reserva editorial. #}
 {% set slides = [
-  { variante: "dorado", eyebrow: "Secretaría de Vivienda y Asentamientos Humanos", titulo: "Construyendo un mejor futuro para Honduras", texto: "Ente rector de la política pública de vivienda y asentamientos humanos de Honduras.", cta_url: "/nosotros/", cta_texto: "Conozca la SEVIAH" },
-  { variante: "navy", eyebrow: "Programas", titulo: "Vivienda digna, segura y sostenible", texto: "El Bono de Vivienda de Interés Social y el mejoramiento de vivienda, al servicio de las familias hondureñas.", cta_url: "/programas/", cta_texto: "Ver programas" },
-  { variante: "verde", eyebrow: "SEVIAH en acción", titulo: "Cerca de las familias hondureñas", texto: "Atención a emergencias y desarrollo ordenado de los asentamientos humanos.", cta_url: "/noticias/", cta_texto: "Ver noticias" }
+  { imagen: "/assets/img/hero/hero-congreso-02.jpg",
+    alt: "Auditorio del Congreso Municipal Sobre Gestión de Riesgos, con las banderas de los países participantes y el público siguiendo la ponencia",
+    eyebrow: "Secretaría de Vivienda y Asentamientos Humanos",
+    titulo: "Construyendo un mejor futuro para Honduras",
+    texto: "Ente rector de la política pública de vivienda y asentamientos humanos de Honduras.",
+    cta_url: "/programas/", cta_texto: "Conozca nuestros programas" },
+  { imagen: "/assets/img/hero/hero-emergencia-01.jpg",
+    alt: "Vivienda afectada por un incendio en Yauyupe, El Paraíso, durante la atención en campo del equipo de SEVIAH",
+    eyebrow: "SEVIAH en acción",
+    titulo: "Atención cercana y responsable",
+    texto: "Acompañamos a las familias afectadas por emergencias con soluciones habitacionales dignas.",
+    cta_url: "/multimedia/", cta_texto: "SEVIAH en Acción" },
+  { variante: "dorado", medallon: "/assets/img/favicon-512.png",
+    eyebrow: "Pilares institucionales",
+    titulo: "Vivienda digna para todos",
+    texto: "El Bono de Vivienda de Interés Social y el mejoramiento de vivienda, al servicio de las familias hondureñas.",
+    cta_url: "/nosotros/", cta_texto: "Conozca la SEVIAH" }
 ] %}
 
 {{ hero(slides, true) }}
