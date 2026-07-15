@@ -3,6 +3,31 @@
 (function () {
   "use strict";
 
+  // D-15 (AJUSTE-04-D2): preloader institucional — se muestra una sola vez por sesión,
+  // se oculta en window load (fade 400ms) con failsafe a los 2.5s y respeta
+  // prefers-reduced-motion (desvanecido inmediato, sin animación).
+  var preloader = document.getElementById("preloader");
+  if (preloader) {
+    var raiz = document.documentElement;
+    var sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (raiz.className.indexOf("sin-preloader") !== -1 || sinMovimiento) {
+      if (preloader.parentNode) { preloader.parentNode.removeChild(preloader); }
+    } else {
+      raiz.classList.add("con-preloader");
+      var ocultarPreloader = function () {
+        if (!preloader.parentNode) { return; }
+        preloader.classList.add("preloader--oculto");
+        raiz.classList.remove("con-preloader");
+        setTimeout(function () {
+          if (preloader.parentNode) { preloader.parentNode.removeChild(preloader); }
+        }, 450);
+      };
+      try { sessionStorage.setItem("seviahPreloader", "1"); } catch (e) { /* sin sesión */ }
+      window.addEventListener("load", ocultarPreloader);
+      setTimeout(ocultarPreloader, 2500); // failsafe
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     if (typeof window.Swiper === "function") {
       // Hero full-width (docs/03 §3)

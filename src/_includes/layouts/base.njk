@@ -15,8 +15,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/tokens.css">
     <link rel="stylesheet" href="/assets/css/main.css">
+    {# D-15 (AJUSTE-04-D2): si el preloader ya se mostró en esta sesión, se omite antes
+       del primer pintado para no castigar la navegación interna. #}
+    <script>if(sessionStorage.getItem("seviahPreloader")){document.documentElement.className+=" sin-preloader"}</script>
   </head>
   <body>
+    {# D-15 (AJUSTE-04-D2): preloader institucional propio. Replica la coreografía del
+       loader de www.sit.gob.hn (logo estático sobre halo giratorio de círculos
+       desenfocados y salida por fade) reimplementada desde cero con CSS propio y el
+       escudo SEVIAH — ningún activo de la SIT se descarga al repo (D-03). #}
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader__anillo"><span></span><span></span><span></span><span></span></div>
+      <img class="preloader__escudo" src="/assets/img/logo-seviah-blanco-escudo.png"
+           alt="" width="96" height="96">
+      <p class="preloader__lema">Construyendo un mejor futuro para Honduras</p>
+    </div>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     {% include "partials/header.njk" %}
     <main id="contenido">
