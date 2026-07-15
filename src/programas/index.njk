@@ -16,7 +16,7 @@ description: Programas de la SEVIAH — Bono de Vivienda de Interés Social (BVI
   <div class="container">
     <div class="row g-4">
       {% for prog in contenido.programas %}
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{ (loop.index0 % 2) * 100 }}">
           <div class="ficha h-100">
             <div class="d-flex align-items-center gap-3 mb-2">
               <div class="pilar__icon"><i class="{{ prog.icono }}" aria-hidden="true"></i></div>

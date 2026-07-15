@@ -16,7 +16,7 @@ description: Sistemas de la SEVIAH — SIGEBO (Sistema Integrado de Gestión del
   <div class="container">
     <div class="row g-4">
       {% for s in contenido.sistemas %}
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{ (loop.index0 % 2) * 100 }}">
           <div class="ficha h-100">
             <div class="d-flex align-items-center justify-content-between mb-2">
               <h2 class="ficha__title mb-0">{{ s.sigla }}</h2>

@@ -42,10 +42,12 @@ description: Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — ente r
     </div>
     <div class="swiper destacados-swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide h-auto">{{ card_destacado("fa-solid fa-house-chimney", "Bono de Vivienda (BVIS)", "Aporte estatal para familias de escasos recursos conforme a la Ley Marco.", "/programas/") }}</div>
-        <div class="swiper-slide h-auto">{{ card_destacado("fa-solid fa-trowel-bricks", "Mejoramiento de Vivienda", "Intervenciones de mejora en vivienda existente.", "/programas/") }}</div>
-        <div class="swiper-slide h-auto">{{ card_destacado("fa-solid fa-diagram-project", "SIGEBO", "Sistema Integrado de Gestión del Bono de Vivienda de Interés Social.", "/sistemas/") }}</div>
-        <div class="swiper-slide h-auto">{{ card_destacado("fa-solid fa-folder-tree", "SIGEPO", "Sistema Integrado de Gestión de Proyectos.", "/sistemas/") }}</div>
+        {# D-15 (AJUSTE-04-D3): AOS en el contenido de cada slide (no en .swiper-slide,
+           cuyo transform administra Swiper) #}
+        <div class="swiper-slide h-auto"><div class="h-100" data-aos="fade-up">{{ card_destacado("fa-solid fa-house-chimney", "Bono de Vivienda (BVIS)", "Aporte estatal para familias de escasos recursos conforme a la Ley Marco.", "/programas/") }}</div></div>
+        <div class="swiper-slide h-auto"><div class="h-100" data-aos="fade-up" data-aos-delay="100">{{ card_destacado("fa-solid fa-trowel-bricks", "Mejoramiento de Vivienda", "Intervenciones de mejora en vivienda existente.", "/programas/") }}</div></div>
+        <div class="swiper-slide h-auto"><div class="h-100" data-aos="fade-up" data-aos-delay="200">{{ card_destacado("fa-solid fa-diagram-project", "SIGEBO", "Sistema Integrado de Gestión del Bono de Vivienda de Interés Social.", "/sistemas/") }}</div></div>
+        <div class="swiper-slide h-auto"><div class="h-100" data-aos="fade-up" data-aos-delay="300">{{ card_destacado("fa-solid fa-folder-tree", "SIGEPO", "Sistema Integrado de Gestión de Proyectos.", "/sistemas/") }}</div></div>
       </div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
@@ -62,7 +64,7 @@ description: Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — ente r
     <div class="row g-4">
       {% for n in noticias %}
         {% if loop.index <= 3 %}
-          <div class="col-md-4">{{ card_noticia(n) }}</div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">{{ card_noticia(n) }}</div>
         {% endif %}
       {% endfor %}
     </div>
@@ -83,7 +85,7 @@ description: Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — ente r
     </div>
     <div class="row g-4 justify-content-center" data-formato="vertical">
       {% for v in destacados.vertical %}
-        <div class="col-md-6 col-lg-4">{{ video_embed(v) }}</div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">{{ video_embed(v) }}</div>
       {% endfor %}
     </div>
     {% if destacados.horizontal | length %}
