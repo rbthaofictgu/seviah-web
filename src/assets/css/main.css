@@ -246,3 +246,43 @@ a:hover { color: var(--sev-dorado); }
   margin-top: 2rem; padding-top: 1.2rem; font-size: .82rem;
   color: color-mix(in srgb, var(--sev-blanco) 66%, transparent);
 }
+
+/* ===== Redes sociales (D-14, AJUSTE-03) =====
+   Después del bloque Footer: a.redes-inline__enlace debe ganarle a .site-footer a. */
+.redes-banda { background: var(--sev-oscuro); color: var(--sev-blanco); padding: 3.5rem 0; text-align: center; }
+.redes-banda__title { font-family: var(--sev-serif); color: var(--sev-blanco); font-size: 1.8rem; font-weight: 700; margin: 0 0 2rem; }
+.redes-banda__lista {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 1.75rem 2.25rem;
+}
+.redes-banda__enlace {
+  display: inline-flex; flex-direction: column; align-items: center; gap: .65rem;
+  text-decoration: none; color: color-mix(in srgb, var(--sev-blanco) 85%, transparent);
+}
+.redes-banda__circulo {
+  width: 64px; height: 64px; border-radius: 50%; background: var(--sev-dorado);
+  color: var(--sev-blanco); display: grid; place-items: center; font-size: 1.65rem;
+  transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.redes-banda__enlace:hover .redes-banda__circulo,
+.redes-banda__enlace:focus-visible .redes-banda__circulo {
+  background: var(--sev-navy); transform: translateY(-4px);
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--sev-navy) 55%, transparent);
+}
+.redes-banda__enlace:hover, .redes-banda__enlace:focus-visible { color: var(--sev-blanco); }
+.redes-banda__nombre { font-family: var(--sev-sans); font-size: .88rem; letter-spacing: .5px; }
+.redes-banda__cta { margin-top: 2.25rem; }
+@media (max-width: 575.98px) {
+  .redes-banda__circulo { width: 56px; height: 56px; font-size: 1.4rem; }
+  .redes-banda__lista { gap: 1.25rem 1.4rem; }
+}
+
+.redes-inline { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+a.redes-inline__enlace {
+  width: 38px; height: 38px; border-radius: 50%; background: var(--sev-dorado);
+  color: var(--sev-blanco); display: grid; place-items: center; font-size: 1rem;
+  text-decoration: none; transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+a.redes-inline__enlace:hover, a.redes-inline__enlace:focus-visible {
+  background: var(--sev-navy); color: var(--sev-blanco); transform: translateY(-2px);
+}

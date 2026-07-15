@@ -4,6 +4,7 @@ title: Contacto
 description: Contacto de la Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — Gobierno de la República de Honduras.
 ---
 {% from "en-construccion.njk" import en_construccion %}
+{% from "redes-sociales.njk" import redes_banda, redes_inline %}
 <section class="section section--suave">
   <div class="container">
     <p class="eyebrow">Estamos para servirle</p>
@@ -21,12 +22,8 @@ description: Contacto de la Secretaría de Vivienda y Asentamientos Humanos (SEV
           <p class="ficha__body mb-2"><strong>Dirección:</strong> <span class="badge-estado">En construcción</span></p>
           <p class="ficha__body mb-3"><strong>Teléfonos:</strong> <span class="badge-estado">En construcción</span></p>
           <h3 class="ficha__title">Síguenos</h3>
-          <p class="ficha__body mb-1">
-            <a href="{{ contenido.contacto.facebook }}" rel="noopener" target="_blank">
-              <i class="fa-brands fa-facebook" aria-hidden="true"></i> facebook.com/seviah.hn
-            </a>
-          </p>
-          <p class="ficha__body mb-0">Otras redes sociales oficiales: <span class="badge-estado">En construcción</span></p>
+          {# D-14 (AJUSTE-03): variante inline con las 5 redes oficiales (D-12) #}
+          {{ redes_inline(redes) }}
         </div>
       </div>
       <div class="col-lg-7">
@@ -59,3 +56,6 @@ description: Contacto de la Secretaría de Vivienda y Asentamientos Humanos (SEV
     </div>
   </div>
 </section>
+
+{# D-14 (AJUSTE-03): banda de redes antes del footer #}
+{{ redes_banda(redes) }}
