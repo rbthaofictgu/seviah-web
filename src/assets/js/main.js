@@ -35,9 +35,12 @@
       });
     }
 
-    // Filtro de playlists de /multimedia/ (progresivo; el sitio funciona sin JS)
+    // Filtro de playlists de /multimedia/ (progresivo; el sitio funciona sin JS).
+    // D-13: el filtro opera dentro de cada bloque de formato; un bloque sin
+    // resultados se oculta completo.
     var filtros = document.querySelectorAll("[data-playlist-filtro]");
     var videos = document.querySelectorAll("[data-playlist]");
+    var bloques = document.querySelectorAll(".bloque-videos[data-formato]");
     if (filtros.length && videos.length) {
       filtros.forEach(function (btn) {
         btn.addEventListener("click", function (ev) {
@@ -48,6 +51,9 @@
           videos.forEach(function (card) {
             var show = val === "todas" || card.getAttribute("data-playlist") === val;
             card.hidden = !show;
+          });
+          bloques.forEach(function (bloque) {
+            bloque.hidden = !bloque.querySelector("[data-playlist]:not([hidden])");
           });
         });
       });

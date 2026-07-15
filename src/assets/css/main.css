@@ -120,6 +120,7 @@ a:hover { color: var(--sev-dorado); }
   background: var(--sev-blanco); border: 1px solid var(--sev-gris-linea); border-radius: 10px;
   overflow: hidden; height: 100%; display: flex; flex-direction: column;
   box-shadow: 0 4px 14px color-mix(in srgb, var(--sev-oscuro) 8%, transparent);
+  color: var(--sev-oscuro); /* autocontenida: no hereda el blanco de .section--oscuro (D-13) */
 }
 .card-noticia__media {
   aspect-ratio: 16/9; display: grid; place-items: center;
@@ -206,6 +207,14 @@ a:hover { color: var(--sev-dorado); }
 }
 .playlist-filtro:hover, .playlist-filtro.is-active { background: var(--sev-navy); color: var(--sev-blanco); }
 .video-card__meta { font-family: var(--sev-sans); font-size: .8rem; color: var(--sev-dorado-texto); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+
+/* ===== Bloques de video por formato (D-13, AJUSTE-02) ===== */
+.bloque-videos + .bloque-videos { margin-top: 3rem; }
+.shorts-fila {
+  display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: .75rem;
+  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+}
+.shorts-fila__item { flex: 0 0 min(320px, 80vw); max-width: 420px; scroll-snap-align: start; }
 
 /* ===== Transparencia (acordeón Art. 13) ===== */
 .enlace-oficial { display: flex; gap: 1rem; align-items: flex-start; }
