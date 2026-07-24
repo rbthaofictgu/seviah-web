@@ -57,14 +57,17 @@ description: Videoteca institucional de la Secretaría de Vivienda y Asentamient
           <p class="eyebrow">Formato vertical</p>
           <h2 class="section-title">SEVIAH Shorts</h2>
         </div>
-        <div class="shorts-fila">
+        <p class="aviso-desplazamiento d-lg-none">Desplace horizontalmente para ver todos los videos.</p>
+        {# Fila desplazable: <section> con nombre accesible la anuncia como región y
+           tabindex la hace alcanzable y desplazable por teclado (axe scrollable-region-focusable) #}
+        <section class="shorts-fila" tabindex="0" aria-label="SEVIAH Shorts: videos en formato vertical">
           {% for v in bloques.vertical %}
             <div class="shorts-fila__item" data-playlist="{{ v.playlist }}">
               <p class="video-card__meta">{{ v.playlist }}</p>
               {{ video_embed(v, true) }}
             </div>
           {% endfor %}
-        </div>
+        </section>
       </div>
     {% endif %}
   </div>

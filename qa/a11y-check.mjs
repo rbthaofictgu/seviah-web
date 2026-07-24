@@ -10,7 +10,7 @@ import { AxeBuilder } from "@axe-core/playwright";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "_site");
 const RUTAS = ["/", "/nosotros/", "/autoridades/", "/programas/", "/sistemas/", "/noticias/", "/multimedia/", "/transparencia/", "/contacto/"];
-const MIME = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".svg": "image/svg+xml", ".json": "application/json" };
+const MIME = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".svg": "image/svg+xml", ".json": "application/json" };
 
 const server = http.createServer((req, res) => {
   let p = decodeURIComponent(req.url.split("?")[0]);
@@ -23,6 +23,21 @@ const server = http.createServer((req, res) => {
 });
 await new Promise((r) => server.listen(8096, r));
 
+// El preloader (D-15) cubre la página ~3s y sale con un fundido de 400ms. Analizar
+// durante ese fundido hacía que axe midiera el lema a media opacidad y reportara un
+// falso contraste 1.31:1 (en firme es navy sobre blanco). Se espera al estado estable.
+async function esperarCargador(page) {
+  await page.waitForFunction(
+    () => {
+      const c = document.querySelector(".sev-cargador");
+      return !c || getComputedStyle(c).opacity === "0";
+    },
+    null,
+    { timeout: 15000 },
+  );
+  await page.waitForTimeout(200);
+}
+
 const browser = await chromium.launch({ headless: true });
 const ctx = await browser.newContext();
 let total = 0;
@@ -30,6 +45,7 @@ const detalle = [];
 for (const ruta of RUTAS) {
   const page = await ctx.newPage();
   await page.goto("http://localhost:8096" + ruta, { waitUntil: "networkidle" });
+  await esperarCargador(page);
   // Se excluye el contenido interno de los iframes: es el reproductor de YouTube
   // (markup de terceros fuera de nuestro control). Nuestros iframes llevan `title`.
   const { violations } = await new AxeBuilder({ page })

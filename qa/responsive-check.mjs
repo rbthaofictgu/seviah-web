@@ -19,7 +19,7 @@ const VIEWPORTS = [
   { nombre: "movil", width: 390, height: 844 },
   { nombre: "escritorio", width: 1366, height: 768 }
 ];
-const MIME = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".svg": "image/svg+xml", ".json": "application/json" };
+const MIME = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".svg": "image/svg+xml", ".json": "application/json" };
 
 const server = http.createServer((req, res) => {
   let p = decodeURIComponent(req.url.split("?")[0]);
@@ -40,6 +40,16 @@ for (const vp of VIEWPORTS) {
   for (const ruta of RUTAS) {
     const page = await ctx.newPage();
     await page.goto("http://localhost:8097" + ruta, { waitUntil: "networkidle" });
+    // Sin esta espera, el preloader (D-15) tapa la página y las capturas salían en blanco
+    await page.waitForFunction(
+      () => {
+        const c = document.querySelector(".sev-cargador");
+        return !c || getComputedStyle(c).opacity === "0";
+      },
+      null,
+      { timeout: 15000 },
+    );
+    await page.waitForTimeout(200);
     const sw = await page.evaluate(() => document.documentElement.scrollWidth);
     const pasa = sw <= vp.width;
     if (!pasa) ok = false;
