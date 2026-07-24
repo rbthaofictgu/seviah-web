@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+title: Página no encontrada
+description: La dirección solicitada no existe en el portal de la Secretaría de la Vivienda y Asentamientos Humanos (SEVIAH).
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+{# 404.njk — Página de error institucional. La sirve Apache mediante
+   "ErrorDocument 404 /404.html" (deploy/htaccess.txt), por eso se emite como
+   archivo suelto en la raíz y no como /404/index.html.
+   Los enlaces pasan por el filtro | url para respetar pathPrefix. #}
+<section class="section section--suave">
+  <div class="container">
+    <p class="eyebrow">Error 404</p>
+    <h1 class="section-title">No encontramos esta página</h1>
+    <p class="section-lead">La dirección solicitada no existe en el portal de la Secretaría de Vivienda y Asentamientos Humanos.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="ficha h-100">
+          <h2 class="ficha__title">¿Qué pudo haber ocurrido?</h2>
+          <div class="ficha__body">
+            <p>La dirección pudo escribirse de forma incompleta, la página pudo trasladarse a otra sección del portal, o el enlace que le trajo hasta aquí ya no es válido.</p>
+            <p class="mb-0">Le invitamos a retomar su consulta desde las secciones principales del sitio.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="ficha h-100">
+          <h2 class="ficha__title">Secciones principales</h2>
+          <ul class="list-unstyled ficha__body mb-0">
+            <li class="mb-2"><a href="{{ '/' | url }}">Portada</a></li>
+            <li class="mb-2"><a href="{{ '/nosotros/' | url }}">Nosotros</a></li>
+            <li class="mb-2"><a href="{{ '/programas/' | url }}">Programas</a></li>
+            <li class="mb-2"><a href="{{ '/transparencia/' | url }}">Transparencia</a></li>
+            <li class="mb-0"><a href="{{ '/contacto/' | url }}">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-nota" role="note">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          Si llegó hasta aquí desde un enlace de este portal, le agradecemos que nos lo comunique a través de la <a href="{{ '/contacto/' | url }}">sección de Contacto</a> para corregirlo.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
