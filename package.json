@@ -5,10 +5,14 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "eleventy",
+    "dev": "eleventy --serve",
     "serve": "eleventy --serve",
+    "build": "rm -rf _site && ELEVENTY_ENV=produccion eleventy",
+    "build:dev": "rm -rf _site && eleventy",
     "validate": "html-validate \"_site/**/*.html\"",
-    "links": "linkinator _site --recurse --skip \"youtube|facebook|iaip|gob.hn\""
+    "links": "linkinator _site --recurse --skip \"youtube|facebook|iaip|gob.hn\"",
+    "qa": "npm run build && npm run validate && npm run links",
+    "empaquetar": "npm run build && cd _site && zip -qr \"../seviah-web_$(date +%Y%m%d-%H%M).zip\" . && cd .. && ls -lh seviah-web_*.zip | tail -1"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",

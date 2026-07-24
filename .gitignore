@@ -4,6 +4,10 @@ _site/
 npm-debug.log*
 qa/lighthouse-inicio.json
 
+# Paquetes de despliegue generados por `npm run empaquetar`
+seviah-web_*.zip
+seviah-web.zip
+
 .claude/settings.local.json
 .claude/*.tmp*
 C:*
