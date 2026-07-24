@@ -25,14 +25,64 @@
   ],
   "autoridades": [
     {
+      "slug": "ministra",
+      "orden": 1,
       "nombre": "Ing. Francis Yolanda Argeñal Echenique",
       "cargo": "Secretaria de Estado en el Despacho de Vivienda y Asentamientos Humanos",
-      "bio": "Ingeniera civil (UJCV) con maestría en Proyectos (UNICAH). Ha sido consultora del BID, directora del FHIS, comisionada nacional de Vivienda y diputada (2022-2026). Primera ministra de Vivienda en la historia de Honduras. Asumió el cargo el 22 de febrero de 2026."
+      "cargo_uso": "Ministra de Vivienda y Asentamientos Humanos",
+      "foto": "/assets/img/autoridades/ministra",
+      "foto_alt": "Retrato oficial de la Ing. Francis Yolanda Argeñal Echenique, Secretaria de Estado en el Despacho de Vivienda y Asentamientos Humanos",
+      "desde": "22 de febrero de 2026",
+      "bio": "Ingeniera civil con dos maestrías y más de quince años de trayectoria en formulación, evaluación y supervisión de proyectos de infraestructura en el sector público y en cooperación internacional. Es la primera titular de la SEVIAH desde su operativización. Su recorrido incluye la conducción de la política nacional de vivienda como Comisionada Nacional y el ejercicio legislativo en representación del departamento de Choluteca.",
+      "formacion": [
+        "Máster en Dirección Empresarial con orientación en Finanzas — Universidad Tecnológica de Honduras (2020)",
+        "Máster en Gestión de Proyectos — Universidad Católica de Honduras (2013)",
+        "Ingeniera Civil — Universidad José Cecilio del Valle (2008)"
+      ],
+      "trayectoria": [
+        { "cargo": "Secretaria de Estado en el Despacho de Vivienda y Asentamientos Humanos", "entidad": "SEVIAH", "periodo": "Febrero 2026 — a la fecha" },
+        { "cargo": "Diputada Propietaria por el departamento de Choluteca", "entidad": "Congreso Nacional de Honduras", "periodo": "2022 — 2026" },
+        { "cargo": "Comisionada Nacional de Vivienda y Asentamientos Humanos", "entidad": "CONVIVIENDA", "periodo": "2018 — 2021" },
+        { "cargo": "Directora de Control y Seguimiento", "entidad": "IDECOAS-FHIS", "periodo": "2016 — 2017" },
+        { "cargo": "Consultora Senior en Infraestructura Civil", "entidad": "Banco Interamericano de Desarrollo — Pronegocios Rurales", "periodo": "2011 — 2015" },
+        { "cargo": "Especialista en Infraestructura Civil", "entidad": "PRONADERS", "periodo": "2010" }
+      ],
+      "competencias": [
+        "Diseño, planificación y supervisión de obras de infraestructura",
+        "Formulación y evaluación socioeconómica de proyectos",
+        "Diseño e implementación de políticas públicas en infraestructura y vivienda",
+        "Planificación territorial y ordenamiento urbano",
+        "Contratación pública y transparencia"
+      ]
     },
     {
-      "nombre": "Sumay Josselyne Palacios",
-      "cargo": "Subsecretaria de Estado",
-      "bio": ""
+      "slug": "viceministra-asentamientos-humanos",
+      "orden": 2,
+      "nombre": "Lic. Carmen María García López",
+      "cargo": "Subsecretaria de Estado en el Despacho de Asentamientos Humanos",
+      "cargo_uso": "Viceministra de Asentamientos Humanos",
+      "foto": "/assets/img/autoridades/viceministra",
+      "foto_alt": "Retrato oficial de la Lic. Carmen María García López, Subsecretaria de Estado en el Despacho de Asentamientos Humanos",
+      "desde": "",
+      "bio": "Licenciada en Pedagogía con orientación en Planeamiento y Administración y más de tres décadas de servicio público. Su trayectoria combina la conducción territorial como Gobernadora Departamental de Lempira, la dirección del sistema educativo departamental y el ejercicio legislativo suplente, con una formación sostenida en coordinación, planificación institucional y elaboración de planes.",
+      "formacion": [
+        "Licenciatura en Pedagogía con orientación en Planeamiento y Administración — Universidad Nacional Autónoma de Honduras (2006)"
+      ],
+      "trayectoria": [
+        { "cargo": "Subsecretaria de Estado en el Despacho de Asentamientos Humanos", "entidad": "SEVIAH", "periodo": "2026 — a la fecha" },
+        { "cargo": "Asesora Presidencial", "entidad": "Casa Presidencial", "periodo": "2019 — 2022" },
+        { "cargo": "Diputada Suplente", "entidad": "Congreso Nacional de Honduras", "periodo": "2018 — 2019" },
+        { "cargo": "Directora Departamental de Educación", "entidad": "Departamento de Lempira", "periodo": "2017 — 2018" },
+        { "cargo": "Consultora en creación de clínica amigable para adolescentes", "entidad": "Escuela Normal Mixta Justicia y Libertad", "periodo": "2014 — 2016" },
+        { "cargo": "Gobernadora Departamental de Lempira", "entidad": "Gobierno de la República", "periodo": "2010 — 2014" },
+        { "cargo": "Docente", "entidad": "CEB Dr. Presentación Centeno", "periodo": "1992 — 2025" }
+      ],
+      "competencias": [
+        "Liderazgo, coordinación y planificación institucional",
+        "Elaboración de planes y estrategias de cumplimiento de objetivos",
+        "Comunicación asertiva y resolución de problemas",
+        "Gestión territorial y articulación con gobiernos locales"
+      ]
     }
   ],
   "programas": [

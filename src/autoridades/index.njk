@@ -3,7 +3,10 @@ layout: layouts/base.njk
 title: Autoridades
 description: Autoridades de la Secretaría de Vivienda y Asentamientos Humanos (SEVIAH) — Gobierno de la República de Honduras.
 ---
-{% from "en-construccion.njk" import en_construccion %}
+{# Las fichas se generan íntegramente desde contenido.autoridades: altas, bajas y
+   reordenamientos se resuelven en src/_data/contenido.json sin tocar esta plantilla.
+   D-16: la reseña publicada consigna únicamente funciones públicas. No se publica
+   número de identidad, teléfono personal, correo personal ni domicilio. #}
 <section class="section section--suave">
   <div class="container">
     <p class="eyebrow">Conducción institucional</p>
@@ -15,21 +18,67 @@ description: Autoridades de la Secretaría de Vivienda y Asentamientos Humanos (
 <section class="section">
   <div class="container">
     <div class="row g-4">
-      {% for a in contenido.autoridades %}
+      {% for a in contenido.autoridades | sort(false, false, "orden") %}
         <div class="col-lg-6">
-          <div class="ficha h-100">
-            <div class="row g-3 align-items-start">
-              <div class="col-5 col-md-4">
-                <div class="retrato-silueta"><i class="fa-solid fa-user-tie" aria-hidden="true"></i></div>
-                <p class="video-embed__caption text-center mt-2 mb-0">Fotografía oficial en construcción</p>
+          <article class="ficha h-100">
+            <div class="row g-4">
+              <div class="col-sm-5">
+                {% if a.foto %}
+                  {# width/height reservan el espacio del retrato: sin ellos la ficha
+                     salta al terminar de cargar la imagen #}
+                  <picture>
+                    <source srcset="{{ (a.foto + '.webp') | url }}" type="image/webp">
+                    <img class="retrato" src="{{ (a.foto + '.jpg') | url }}" alt="{{ a.foto_alt }}"
+                         width="900" height="1200" loading="lazy">
+                  </picture>
+                {% else %}
+                  <div class="retrato-silueta"><i class="fa-solid fa-user-tie" aria-hidden="true"></i></div>
+                  <p class="video-embed__caption text-center mt-2 mb-0">Fotografía oficial en construcción</p>
+                {% endif %}
               </div>
-              <div class="col-7 col-md-8">
+              <div class="col-sm-7">
+                <p class="eyebrow ficha__eyebrow mb-1">{{ a.cargo_uso }}</p>
                 <h2 class="ficha__title">{{ a.nombre }}</h2>
-                <p class="eyebrow ficha__eyebrow">{{ a.cargo }}</p>
-                {% if a.bio %}<p class="ficha__body">{{ a.bio }}</p>{% endif %}
+                <p class="autoridad-cargo">{{ a.cargo }}</p>
+                {% if a.desde %}<p class="autoridad-desde">En el cargo desde el {{ a.desde }}.</p>{% endif %}
+                <p class="ficha__body mb-0">{{ a.bio }}</p>
               </div>
             </div>
-          </div>
+
+            {% if a.formacion %}
+              <details class="autoridad-detalle">
+                <summary>Formación académica</summary>
+                <ul class="autoridad-lista">
+                  {% for item in a.formacion %}<li>{{ item }}</li>{% endfor %}
+                </ul>
+              </details>
+            {% endif %}
+
+            {% if a.trayectoria %}
+              {# La primera autoridad del orden abre su trayectoria por defecto #}
+              <details class="autoridad-detalle"{% if loop.first %} open{% endif %}>
+                <summary>Trayectoria en el servicio público</summary>
+                <ul class="trayectoria">
+                  {% for t in a.trayectoria %}
+                    <li class="trayectoria__item">
+                      <p class="trayectoria__periodo">{{ t.periodo }}</p>
+                      <p class="trayectoria__cargo">{{ t.cargo }}</p>
+                      <p class="trayectoria__entidad">{{ t.entidad }}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </details>
+            {% endif %}
+
+            {% if a.competencias %}
+              <details class="autoridad-detalle">
+                <summary>Áreas de competencia</summary>
+                <ul class="autoridad-lista">
+                  {% for item in a.competencias %}<li>{{ item }}</li>{% endfor %}
+                </ul>
+              </details>
+            {% endif %}
+          </article>
         </div>
       {% endfor %}
     </div>
@@ -41,11 +90,21 @@ description: Autoridades de la Secretaría de Vivienda y Asentamientos Humanos (
     <div class="section-heading">
       <p class="eyebrow">Estructura</p>
       <h2 class="section-title">Organigrama</h2>
+      <p class="section-lead">Estructura organizativa de la Secretaría conforme a la Ley Marco del Sistema Nacional de Vivienda.</p>
     </div>
-    <div class="row">
-      <div class="col-lg-8">
-        {{ en_construccion("Organigrama en construcción", "Estamos preparando la estructura organizativa de la Secretaría para usted.") }}
-      </div>
-    </div>
+    <p class="aviso-desplazamiento d-lg-none">Desplace horizontalmente para ver el organigrama completo.</p>
+    {# El visor es una región desplazable: <section> con nombre accesible la anuncia como
+       tal, y tabindex la hace alcanzable y desplazable por teclado #}
+    <section class="organigrama-visor" tabindex="0" aria-label="Organigrama institucional de la SEVIAH">
+      <img src="{{ '/assets/img/autoridades/organigrama/organigrama-seviah.svg' | url }}"
+           width="2160" height="1400" loading="lazy"
+           alt="Organigrama institucional de la SEVIAH. Encabeza la estructura el Despacho de la Secretaría de Vivienda y Asentamientos Humanos, del que dependen la Subsecretaría de Vivienda y la Subsecretaría de Asentamientos Humanos. Como órganos de asesoría y apoyo figuran la Unidad de Comunicaciones, la UIAIP, la UAI, la Unidad de Cooperación Externa, IT, UPEG, UDEM, la Secretaría General, la Gerencia Administrativa —con las subgerencias de Recursos Materiales y Servicios Generales, de Presupuesto y Contabilidad y de Recursos Humanos—, la Ventanilla Única Multisectorial y la Unidad de Servicios Legales. En el nivel de dirección se ubican la Dirección del Sistema de Información Sectorial, la Dirección de Políticas, Monitoreo y Estadísticas Sectorial, la Dirección de Inversiones en Vivienda Social, la Dirección de Gestión Urbana y Resiliente y la Dirección de Gestión del Suelo y Regularización, con sus respectivos departamentos, además de las coordinaciones regionales y departamentales. FONHVIVIENDA figura como órgano desconcentrado.">
+    </section>
+    <p class="mt-4 mb-0">
+      <a class="btn-sev-outline" href="{{ '/assets/img/autoridades/organigrama/organigrama-seviah.png' | url }}" download>
+        <i class="fa-solid fa-download" aria-hidden="true"></i>
+        Descargar en alta resolución (PNG, 3456 × 2240 px · 180 KB)
+      </a>
+    </p>
   </div>
 </section>

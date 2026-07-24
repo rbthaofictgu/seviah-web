@@ -334,6 +334,43 @@ html.con-cargador { overflow: hidden; }
   border-radius: 10px; display: grid; place-items: center; color: var(--sev-dorado); font-size: 3rem;
 }
 
+/* ===== Autoridades: retrato, bloques desplegables y organigrama =====
+   Los retratos se sirven ya recortados a 3:4 (900×1200); aspect-ratio y object-fit
+   sostienen el encuadre aunque una futura foto llegue con otra proporción. */
+.retrato {
+  display: block; width: 100%; height: auto; aspect-ratio: 3/4; object-fit: cover;
+  border-radius: 10px; border: 1px solid var(--sev-gris-linea);
+}
+.autoridad-cargo { font-family: var(--sev-sans); font-size: .88rem; margin-bottom: .35rem; }
+.autoridad-desde {
+  font-family: var(--sev-sans); font-size: .82rem; color: var(--sev-dorado-texto);
+  margin-bottom: .8rem;
+}
+
+/* Desplegables nativos <details>: sin JavaScript (D-H) */
+.autoridad-detalle { border-top: 1px solid var(--sev-gris-linea); margin-top: 1rem; }
+.autoridad-detalle > summary {
+  font-family: var(--sev-sans); font-weight: 700; font-size: .9rem; color: var(--sev-navy);
+  padding: .7rem 0; cursor: pointer;
+}
+.autoridad-detalle > summary:hover, .autoridad-detalle[open] > summary { color: var(--sev-dorado-texto); }
+.autoridad-lista { font-family: var(--sev-sans); font-size: .9rem; padding-left: 1.1rem; margin-bottom: 1rem; }
+.autoridad-lista li + li { margin-top: .4rem; }
+
+.trayectoria { list-style: none; padding-left: 0; margin-bottom: 1rem; }
+.trayectoria__item { border-left: 3px solid var(--sev-dorado); padding-left: .9rem; }
+.trayectoria__item + .trayectoria__item { margin-top: .9rem; }
+.trayectoria__periodo {
+  font-family: var(--sev-sans); font-size: .74rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--sev-dorado-texto); margin-bottom: .1rem;
+}
+.trayectoria__cargo { color: var(--sev-navy); font-weight: 700; font-size: .98rem; margin-bottom: .05rem; }
+.trayectoria__entidad { font-family: var(--sev-sans); font-size: .86rem; margin-bottom: 0; }
+
+.aviso-desplazamiento { font-family: var(--sev-sans); font-size: .88rem; color: var(--sev-dorado-texto); }
+.organigrama-visor { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.organigrama-visor img { min-width: 900px; width: 100%; height: auto; display: block; }
+
 /* ===== Formulario (maquetado, deshabilitado) ===== */
 .form-nota {
   background: var(--sev-dorado-suave); border: 1px solid var(--sev-gris-linea);

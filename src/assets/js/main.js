@@ -4,7 +4,7 @@
   "use strict";
 
   // Firma de revisión para diagnóstico rápido (¿qué versión está viendo el navegador?)
-  console.info("SEVIAH · assets rev 20260715-10");
+  console.info("SEVIAH · assets rev 20260723-11");
 
   // D-15 (AJUSTE-04-D2, revisión del usuario): preloader en cada página y cada visita
   // (paridad con el loader de la SIT). Se oculta con fade de 400ms al cumplirse la
